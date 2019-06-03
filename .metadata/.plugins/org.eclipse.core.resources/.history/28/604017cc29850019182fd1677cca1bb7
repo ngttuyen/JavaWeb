@@ -1,0 +1,61 @@
+<%@page contentType="text/html" pageEncoding="utf-8"%>
+<%@ include file="includes/head.jsp"%>
+<body>
+	<div id="main">
+		<div id="header">
+			<div id="logo">
+				<div id="logo_text">
+					<!-- class="logo_colour", allows you to change the colour of the text -->
+					<h1>
+						<a href="index.jsp">doduong<span class="logo_colour">bookStore</span></a>
+					</h1>
+					<h2>Bring knowledge around the world.</h2>
+				</div>
+			</div>
+			<div id="menubar">
+				<ul id="menu">
+					<!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+					<li><a href="index.jsp">Home</a></li>
+					<li><a href="signup.jsp">Sign Up</a></li>
+					<li class="selected"><a href="login.jsp">Login</a></li>
+					<li><a href="book.jsp">Book List</a></li>
+					<li><a href="categories.jsp">Categories</a></li>
+				</ul>
+				<form method="get" action="" id="searchForm">
+					<input type="text" name="search" id="search-input" class="styled-input">
+					<button class="button">Search</button>
+				</form>
+			</div>
+		</div>
+		<div id="site_content">
+			<%@ include file="/includes/sidebar.jsp"%>
+			<div id="content">
+			<!-- -------------------------your code here---------------------- --->
+			<form method="post" action="">
+					<table class="login-signup" border="1">
+						<tr>
+							<td><label>Username: </label></td>
+							<td class="right"><input type="text" name="id"
+								class="styled-input"></td>
+								<td rowspan="2"><button class="button" type="submit">Login</button></td>
+						</tr>
+						<tr>
+							<td><label>Password: </label></td>
+							<td class="right"><input type="password" name="pw"
+								class="styled-input"></td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="checkbox" name="terms"> Remember me</td>
+						</tr>
+					</table>
+				</form>
+			<!-- -------------------------your code here---------------------- --->
+			</div>
+		</div>
+		<div id="footer">
+			<!---footer here --->
+			<%@ include file="/includes/footer.jsp"%>
+		</div>
+	</div>
+</body>
+</html>

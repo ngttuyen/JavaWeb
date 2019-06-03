@@ -1,0 +1,5 @@
+<%@page contentType="text/html" pageEncoding="utf-8"%>
+<jsp:include page="/includes/header.jsp"></jsp:include>
+<section></section>
+</body>
+</html>

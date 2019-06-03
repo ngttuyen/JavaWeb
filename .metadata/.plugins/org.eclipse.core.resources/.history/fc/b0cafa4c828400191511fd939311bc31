@@ -1,0 +1,10 @@
+package model;
+
+import java.util.Date;
+
+public class Member {
+	private int MemberID;
+	private String Username,Password,Email,FullName,Address,Phone;
+	private boolean Gender;
+	private Date dob;
+}

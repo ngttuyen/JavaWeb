@@ -1,0 +1,9 @@
+<%@page contentType="text/html" pageEncoding="utf-8"%>
+<%@ include file="/includes/header.jsp"%>
+<section>
+
+	<h1>Hello</h1>
+
+</section>
+</body>
+</html>

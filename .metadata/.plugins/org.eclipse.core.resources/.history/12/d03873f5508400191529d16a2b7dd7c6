@@ -1,0 +1,8 @@
+<%@page contentType="text/html" pageEncoding="utf-8"%>
+<div id="footer">
+	Copyright &copy; duongdo990 | <a
+		href="#">Facebook</a> | <a
+		href="#">Gmail</a> | <a
+		href="http://www.html5webtemplates.co.uk">HTML5 Web Templates</a>
+</div>
+</div>

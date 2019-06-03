@@ -1,0 +1,11 @@
+package util;
+
+public class StringUtil {
+	public void String getString(String s) {
+		if(s==null) {
+			return "";
+		}else {
+			return s;
+		}
+	}
+}
