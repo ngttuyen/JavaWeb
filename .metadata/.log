@@ -2423,3 +2423,525 @@ java.lang.Exception: The project description file (.project) for 'Servers' is mi
 
 !ENTRY org.eclipse.jface.text 2 0 2019-06-03 15:00:47.623
 !MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.ui.navigator 4 2 2019-06-03 15:09:51.225
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.ui.navigator".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.egit.ui.internal.repository.RepositoriesViewContentProvider.getChildren(RepositoriesViewContentProvider.java:274)
+	at org.eclipse.ui.internal.navigator.extensions.SafeDelegateTreeContentProvider.getChildren(SafeDelegateTreeContentProvider.java:98)
+	at org.eclipse.ui.internal.navigator.extensions.SafeDelegateTreeContentProvider.getChildren(SafeDelegateTreeContentProvider.java:244)
+	at org.eclipse.ui.internal.navigator.extensions.SafeDelegateTreeContentProvider.getChildren(SafeDelegateTreeContentProvider.java:96)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$1.run(NavigatorContentServiceContentProvider.java:160)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.internalGetChildren(NavigatorContentServiceContentProvider.java:146)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getChildren(NavigatorContentServiceContentProvider.java:132)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getRawChildren(AbstractTreeViewer.java:1415)
+	at org.eclipse.jface.viewers.TreeViewer.getRawChildren(TreeViewer.java:350)
+	at org.eclipse.jface.viewers.StructuredViewer.getFilteredChildren(StructuredViewer.java:903)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getSortedChildren(AbstractTreeViewer.java:621)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:813)
+	at org.eclipse.jface.viewers.TreeViewer.createChildren(TreeViewer.java:604)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:766)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.handleTreeExpand(AbstractTreeViewer.java:1541)
+	at org.eclipse.jface.viewers.TreeViewer.handleTreeExpand(TreeViewer.java:889)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$3.treeExpanded(AbstractTreeViewer.java:1553)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:136)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4131)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1055)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1064)
+	at org.eclipse.swt.widgets.Tree.wmNotifyChild(Tree.java:7529)
+	at org.eclipse.swt.widgets.Control.wmNotify(Control.java:5809)
+	at org.eclipse.swt.widgets.Composite.wmNotify(Composite.java:1988)
+	at org.eclipse.swt.widgets.Control.WM_NOTIFY(Control.java:5367)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4824)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4770)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Tree.callWindowProc(Tree.java:1554)
+	at org.eclipse.swt.widgets.Tree.WM_LBUTTONDOWN(Tree.java:6430)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4804)
+	at org.eclipse.swt.widgets.Tree.windowProc(Tree.java:5962)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4770)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3545)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:566)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:661)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1476)
+
+!ENTRY org.eclipse.ui 4 0 2019-06-03 15:09:51.232
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.egit.ui.internal.repository.tree.RepositoryTreeNode.toString(RepositoryTreeNode.java:431)
+	at java.lang.String.valueOf(Unknown Source)
+	at java.lang.StringBuffer.append(Unknown Source)
+	at org.eclipse.osgi.util.NLS.internalBind(NLS.java:212)
+	at org.eclipse.osgi.util.NLS.bind(NLS.java:127)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider$1.handleException(NavigatorContentServiceContentProvider.java:178)
+	at org.eclipse.core.runtime.SafeRunner.handleException(SafeRunner.java:78)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.internalGetChildren(NavigatorContentServiceContentProvider.java:146)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceContentProvider.getChildren(NavigatorContentServiceContentProvider.java:132)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getRawChildren(AbstractTreeViewer.java:1415)
+	at org.eclipse.jface.viewers.TreeViewer.getRawChildren(TreeViewer.java:350)
+	at org.eclipse.jface.viewers.StructuredViewer.getFilteredChildren(StructuredViewer.java:903)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.getSortedChildren(AbstractTreeViewer.java:621)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:813)
+	at org.eclipse.jface.viewers.TreeViewer.createChildren(TreeViewer.java:604)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:766)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.handleTreeExpand(AbstractTreeViewer.java:1541)
+	at org.eclipse.jface.viewers.TreeViewer.handleTreeExpand(TreeViewer.java:889)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$3.treeExpanded(AbstractTreeViewer.java:1553)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:136)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4131)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1055)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1064)
+	at org.eclipse.swt.widgets.Tree.wmNotifyChild(Tree.java:7529)
+	at org.eclipse.swt.widgets.Control.wmNotify(Control.java:5809)
+	at org.eclipse.swt.widgets.Composite.wmNotify(Composite.java:1988)
+	at org.eclipse.swt.widgets.Control.WM_NOTIFY(Control.java:5367)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4824)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4770)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Tree.callWindowProc(Tree.java:1554)
+	at org.eclipse.swt.widgets.Tree.WM_LBUTTONDOWN(Tree.java:6430)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4804)
+	at org.eclipse.swt.widgets.Tree.windowProc(Tree.java:5962)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4770)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3545)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1173)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1062)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:566)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:155)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:661)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1476)
+
+!ENTRY org.eclipse.epp.mpc.core 4 0 2019-06-03 15:13:43.208
+!MESSAGE Failed to stream using org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport@7cec0b81 - falling back to org.eclipse.epp.internal.mpc.core.util.TransportFactory$$Lambda$750/263290328@560a45f7: Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:119)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:206)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	... 3 more
+Contains: Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:206)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.epp.mpc.core 4 0 2019-06-03 15:13:43.209
+!MESSAGE Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:206)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 2 org.eclipse.epp.mpc.core 4 0 2019-06-03 15:13:43.209
+!MESSAGE Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:206)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.epp.mpc.core 4 0 2019-06-03 15:13:43.210
+!MESSAGE Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:206)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.epp.mpc.core 4 0 2019-06-03 15:13:43.221
+!MESSAGE Failed to stream using org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport@7cec0b81 - falling back to org.eclipse.epp.internal.mpc.core.util.TransportFactory$$Lambda$750/263290328@bb8709a: Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:119)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	... 3 more
+Contains: Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.epp.mpc.core 4 0 2019-06-03 15:13:43.221
+!MESSAGE Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 2 org.eclipse.epp.mpc.core 4 0 2019-06-03 15:13:43.221
+!MESSAGE Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.epp.mpc.core 4 0 2019-06-03 15:13:43.221
+!MESSAGE Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.epp.mpc.core 4 0 2019-06-03 15:13:48.871
+!MESSAGE Failed to stream using org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport@7cec0b81 - falling back to org.eclipse.epp.internal.mpc.core.util.TransportFactory$$Lambda$750/263290328@4c747395: Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:119)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	... 3 more
+Contains: Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.epp.mpc.core 4 0 2019-06-03 15:13:48.871
+!MESSAGE Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 2 org.eclipse.epp.mpc.core 4 0 2019-06-03 15:13:48.871
+!MESSAGE Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.epp.mpc.core 4 0 2019-06-03 15:13:48.871
+!MESSAGE Connection failed
+
+This is most often caused by a problem with your internet connection. Please check your internet connection and retry.
+!STACK 0
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137)
+	at org.apache.http.impl.io.SessionInputBufferImpl.read(SessionInputBufferImpl.java:198)
+	at org.apache.http.impl.io.ContentLengthInputStream.read(ContentLengthInputStream.java:176)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:135)
+	at org.apache.http.conn.EofSensorInputStream.read(EofSensorInputStream.java:148)
+	at org.apache.http.util.EntityUtils.toByteArray(EntityUtils.java:138)
+	at org.apache.http.client.fluent.Response.returnResponse(Response.java:105)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:133)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport$1.handleResponse(HttpClientTransport.java:1)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.executeImpl(RequestTemplate.java:97)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.RequestTemplate.execute(RequestTemplate.java:55)
+	at org.eclipse.epp.internal.mpc.core.transport.httpclient.HttpClientTransport.stream(HttpClientTransport.java:104)
+	at org.eclipse.epp.internal.mpc.core.util.FallbackTransportFactory$FallbackTransport.stream(FallbackTransportFactory.java:71)
+	at org.eclipse.epp.internal.mpc.ui.catalog.ResourceProvider$1.run(ResourceProvider.java:309)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
