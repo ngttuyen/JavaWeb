@@ -1,8 +1,0 @@
-127.0.0.1 - - [03/Jun/2019:14:57:46 +0700] "GET / HTTP/1.1" 404 1074
-127.0.0.1 - - [03/Jun/2019:14:58:27 +0700] "GET / HTTP/1.1" 404 1074
-0:0:0:0:0:0:0:1 - - [03/Jun/2019:14:58:29 +0700] "GET /MyWebsite/home HTTP/1.1" 200 2044
-0:0:0:0:0:0:0:1 - - [03/Jun/2019:14:58:29 +0700] "GET /MyWebsite/styles/style.css HTTP/1.1" 200 4910
-0:0:0:0:0:0:0:1 - - [03/Jun/2019:14:58:29 +0700] "GET /MyWebsite/images/background.png HTTP/1.1" 200 66709
-0:0:0:0:0:0:0:1 - - [03/Jun/2019:14:58:29 +0700] "GET /MyWebsite/images/transparent.png HTTP/1.1" 200 199
-0:0:0:0:0:0:0:1 - - [03/Jun/2019:14:58:29 +0700] "GET /MyWebsite/images/transparent_light.png HTTP/1.1" 200 147
-0:0:0:0:0:0:0:1 - - [03/Jun/2019:14:58:29 +0700] "GET /favicon.ico HTTP/1.1" 404 1085

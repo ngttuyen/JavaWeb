@@ -4,10 +4,9 @@
 <section>
 
 	<h1>Hello</h1>
-	<form action="Hello" method="post" enctype='multipart/form-data'>
-	<input type="file" name="upload" value="Choose"><br>
-	<input type="submit" name="submit" value="Submit"><br>
-	</form>
+	<form method="post" enctype="multipart/form-data" action="Hello">
+    <input type="file" name="myimage" />
+</form>
 
 </section>
 <!-- End of Section -->

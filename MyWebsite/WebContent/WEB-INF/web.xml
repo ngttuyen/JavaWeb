@@ -118,6 +118,9 @@
     <url-pattern>/UserBook</url-pattern>
   </servlet-mapping>
   <session-config>
-		<session-timeout>20</session-timeout>
-	</session-config>
+    <session-timeout>20</session-timeout>
+  </session-config>
+  <listener>
+    <listener-class>controller.BookListener</listener-class>
+  </listener>
 </web-app>

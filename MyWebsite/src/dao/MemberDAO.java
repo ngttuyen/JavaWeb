@@ -14,8 +14,7 @@ public class MemberDAO {
 	public static Member login(String username,String password) {
 		String select = "select * from Member where Username = ? and Password = ?";
 		Member m = null;
-		try {
-			Connection con = DBConfig.getConnection();
+		try (Connection con = DBConfig.getConnection()){
 			PreparedStatement ps = con.prepareStatement(select);
 			ps.setString(1, username);
 			ps.setString(2, password);
@@ -43,8 +42,7 @@ public class MemberDAO {
 	public static boolean signUp(String name,String email,String username,String password,boolean gender,Date date) {
 		String insert = "insert into Member values(?,?,?,?,?,?,?,?)";
 		Member m =null;
-		try {
-			Connection con = DBConfig.getConnection();
+		try (Connection con = DBConfig.getConnection()){
 			PreparedStatement ps = con.prepareStatement(insert);
 			ps.setString(1, username);
 			ps.setString(2, password);

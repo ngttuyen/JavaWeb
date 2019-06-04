@@ -8,6 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%
+		if(session.getAttribute("message")!=null){
+			request.getRequestDispatcher("WelcomeServlet").forward(request, response);
+		}
+	%>
 	<form action="LoginServlet" method="post">
 		<table>
 			<tr>
@@ -26,6 +31,6 @@
 			</tr>
 		</table>
 	</form>
-	<%=StringUtil.getString(session.getAttribute("message"))%>
+	${sessionScope.message}
 </body>
 </html>

@@ -25,8 +25,8 @@ public class LoginServlet extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String user = request.getParameter("id");
-		String pw = request.getParameter("pw");
+		String user = request.getParameter("username");
+		String pw = request.getParameter("password");
 		HttpSession session = request.getSession();
 		User us = UserDAO.checkLogin(user, pw);
 		if(us!=null) {
