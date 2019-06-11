@@ -1,50 +1,33 @@
-<%@page contentType="text/html" pageEncoding="utf-8"%>
-<%@ include file="includes/head.jsp"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>duongdo's BookStore</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
 <body>
-	<div id="main">
-		<div id="header">
-			<div id="logo">
-				<div id="logo_text">
-					<!-- class="logo_colour", allows you to change the colour of the text -->
-					<h1>
-						<a href="index.jsp">doduong<span class="logo_colour">bookStore</span></a>
-					</h1>
-					<h2>Bring knowledge around the world.</h2>
-				</div>
-			</div>
-			<div id="menubar">
-				<ul id="menu">
-					<!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
-					<li class="selected"><a href="home">Home</a></li>
-					<li><a href="signup">Sign Up</a></li>
-					<li><a href="login">Login</a></li>
-					<li><a href="book">Book List</a></li>
-					<li><a href="about">About</a></li>
-				</ul>
-				<form method="get" action="" id="searchForm">
-					<input type="text" name="search" id="search-input" class="styled-input">
-					<button class="button">Search</button>
-				</form>
-			</div>
-		</div>
-		<div id="site_content">
-			<%@ include file="/includes/sidebar.jsp"%>
-			<div id="content">
-				<!-- -------------------------your code here---------------------- --->
-				<table>
-				
-				
-				
-				
-				
-				</table>
-				<!-- -------------------------your code here---------------------- --->
-			</div>
-		</div>
-		<div id="footer">
-			<!---footer here --->
-			<%@ include file="/includes/footer.jsp"%>
-		</div>
-	</div>
+<!-- -- Your Content Here -->
+abc
+	
+	
+	
+	
+<!-- -- End Content Here -->	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 </body>
 </html>

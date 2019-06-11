@@ -15,5 +15,6 @@
 			value="Update">
 			<input hidden type="text" name="id" value="${param.id}">
 	</form>
+${sessionScope}
 </body>
 </html>

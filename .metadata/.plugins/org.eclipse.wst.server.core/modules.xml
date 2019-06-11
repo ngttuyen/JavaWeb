@@ -10,4 +10,5 @@
   <module moduleId="org.eclipse.jst.jee.server:Question2" serverId="Tomcat v8.5 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:Workshop4" serverId="Tomcat v8.5 Server at localhost"/>
   <module moduleId="org.eclipse.jst.jee.server:MyWebsite" serverId="Tomcat v8.5 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:ServletTest" serverId="Tomcat v8.5 Server at localhost"/>
 </modules>

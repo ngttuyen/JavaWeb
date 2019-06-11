@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,10 +24,19 @@ public class LoginServlet extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String user = request.getParameter("username");
 		String pw = request.getParameter("password");
+		String check = request.getParameter("remember");
+		if(check.equalsIgnoreCase("ON")) {
+			Cookie c1 = new Cookie("username", user);
+			Cookie c2 = new Cookie("password", pw);
+			c1.setMaxAge(60);
+			c2.setMaxAge(60);
+			response.addCookie(c1);
+			response.addCookie(c2);
+		}
 		HttpSession session = request.getSession();
 		User us = UserDAO.checkLogin(user, pw);
 		if(us!=null) {

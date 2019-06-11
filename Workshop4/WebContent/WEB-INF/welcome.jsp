@@ -7,7 +7,7 @@
 <title>Welcome page</title>
 </head>
 <body>
-
+	
 	<%
 		out.print("<h1>Hello " + session.getAttribute("message") + "!</h1>");
 	%>
@@ -18,5 +18,6 @@
 	<%
 		}
 	%>
+	
 </body>
 </html>

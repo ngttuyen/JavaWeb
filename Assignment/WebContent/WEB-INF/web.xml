@@ -9,4 +9,24 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ProcessLogin</display-name>
+    <servlet-name>ProcessLogin</servlet-name>
+    <servlet-class>controller.ProcessLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProcessLogin</servlet-name>
+    <url-pattern>/ProcessLogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WelcomeServlet</display-name>
+    <servlet-name>WelcomeServlet</servlet-name>
+    <servlet-class>controller.WelcomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WelcomeServlet</servlet-name>
+    <url-pattern>/WelcomeServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
