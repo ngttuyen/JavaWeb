@@ -51,6 +51,8 @@ D:\Coding\JavaWeb\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\92635145
 \JavaBean\src
 D:\Coding\JavaWeb\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3482570698.index
 \Assignment\src
+D:\Coding\JavaWeb\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1135281017.index
+\PRJ312_DOTHEDUONG_SE1301\src
 D:\Coding\JavaWeb\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3460313481.index
 \MyWebsite\src
 D:\Coding\JavaWeb\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1152870196.index
