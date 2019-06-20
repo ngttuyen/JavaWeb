@@ -4,6 +4,8 @@
     Author     : Quynh
 --%>
 
+<%@page import="model.Product"%>
+<%@page import="model.OrderLine"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,6 +19,11 @@
             <option></option>
             <option></option>
         </select><br>
+        <% 
+            for(Product p :OrderLine.getAll()){
+                out.print(p.getProductName());
+            };
+        %>
         Payment method: <input type="text" name="payment"/><br>
         <input type="submit" value="Continue"/>
 

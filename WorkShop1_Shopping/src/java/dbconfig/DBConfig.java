@@ -17,12 +17,15 @@ public class DBConfig {
     public static Connection getConnection() {
         Connection conn = null;
         try {
-            Class.forName("org.h2.Driver");
-            conn = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
+            Class.forName("com.mysql.jdbc.Driver"); 
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","");
 
         } catch (Exception e) {
             e.printStackTrace();
         }
         return conn;
+    }
+    public static void main(String[] args) {
+        getConnection();
     }
 }

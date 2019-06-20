@@ -5,21 +5,19 @@
  */
 package controller;
 
-import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Product;
+import model.OrderLine;
 
 /**
  *
  * @author Quynh
  */
-public class ProcessProduct extends HttpServlet {
+public class ProcessBuy extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +36,10 @@ public class ProcessProduct extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProcessProduct</title>");
+            out.println("<title>Servlet ProcessBuy</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProcessProduct at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ProcessBuy at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -73,13 +71,9 @@ public class ProcessProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("username");
-        request.setAttribute("username", username);
-        ArrayList<Product> pList = ProductDAO.getAllProduct();
-        if ( pList != null) {
-            request.setAttribute("pList", pList);
-        }
-        request.getRequestDispatcher("product.jsp").forward(request, response);
+            String itemID = request.getParameter("item");
+            OrderLine or = new OrderLine(itemID);
+            request.getRequestDispatcher("ProcessProduct").forward(request, response);
     }
 
     /**

@@ -10,7 +10,8 @@ import model.Product;
 import dbconfig.DBConfig;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.HashMap;
+import java.util.ArrayList;
+
 
 /**
  *
@@ -18,30 +19,23 @@ import java.util.HashMap;
  */
 public class ProductDAO {
 
-    public static HashMap<String, Product> getAllProduct() {
+    public static ArrayList<Product> getAllProduct() {
         String sql = "select * from Product";
-        HashMap<String, Product> pList = new HashMap<>();
+        ArrayList<Product> pList = new ArrayList<>();
         Product p = null;
         try (Connection conn = DBConfig.getConnection()) {
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                String productID = rs.getString("ProductID");
-                p = new Product(rs.getString("ProductName"),
-                        rs.getInt("ProductPrice"));
-                pList.put(productID, p);
+                p = new Product(rs.getString(2),rs.getString(1),
+                        rs.getInt(3));
+                pList.add(p);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return pList;
     }
-
-    public static Product getProduct(HashMap map,String productID) {
-        Product p = null;
-        if(map.containsKey(productID)){
-            p = (Product) map.get(productID);
-        }
-        return p;
-    }            
+ 
 }
+

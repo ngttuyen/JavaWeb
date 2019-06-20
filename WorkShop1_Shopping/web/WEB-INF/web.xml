@@ -4,13 +4,24 @@
         <servlet-name>ProcessProduct</servlet-name>
         <servlet-class>controller.ProcessProduct</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProcessBuy</servlet-name>
+        <servlet-class>controller.ProcessBuy</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProcessProduct</servlet-name>
         <url-pattern>/ProcessProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessBuy</servlet-name>
+        <url-pattern>/ProcessBuy</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>

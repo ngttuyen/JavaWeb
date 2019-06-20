@@ -24,10 +24,22 @@
                 </tr>
             </thead>
             <tbody>
-                
+                <c:forEach items="${requestScope.pList}" var="pList">
+                    <tr>
+                        <td>${pList.productID}</td>
+                        <td>${pList.productName}</td>
+                        <td>${pList.productPrice}</td>
+                        <td>
+                            <form action="ProcessBuy" method="post">
+                                <input hidden type="text" name="item" value="${pList.productID}"/>
+                                <input type="submit" value="Buy"/>
+                            </form>
+                        </td>
+                    </tr>
+                </c:forEach>
             </tbody>
         </table>
-        <a href="#">View Shopping Card</a>
+        <a href="shoppingcard.jsp">View Shopping Card</a>
 
     </body>
 </html>
