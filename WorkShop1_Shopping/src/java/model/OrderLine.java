@@ -7,28 +7,37 @@ package model;
 
 import static dao.ProductDAO.getAllProduct;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
  * @author Quynh
  */
 public class OrderLine {
-    private int quantity;
 
-    static ArrayList<Product> bList = new ArrayList<Product>();
-    
-    public static ArrayList<Product> getAll(){
+    private int orderID, quantity, price;
+
+    public OrderLine(int orderID, int quantity, int price) {
+
+        this.orderID = orderID;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
+    static HashMap<String, ArrayList<OrderLine>> bList = new HashMap<String, ArrayList<OrderLine>>();
+
+    public static HashMap<String, ArrayList<OrderLine>> getAll() {
         return bList;
     }
 
     public OrderLine(String productID) {
-        bList.add(getProduct(productID));
+
     }
 
-    public static Product getProduct(String productID) {
+    public static Product getProduct(int productID) {
         Product p = null;
         for (int i = 0; i < getAllProduct().size(); i++) {
-            if ((getAllProduct().get(i).getProductID()).equalsIgnoreCase(productID)) {
+            if ((getAllProduct().get(i)).getProductID() == productID) {
                 p = getAllProduct().get(i);
             }
         }

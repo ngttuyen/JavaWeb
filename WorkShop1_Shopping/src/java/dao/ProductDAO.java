@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class ProductDAO {
 
     public static ArrayList<Product> getAllProduct() {
-        String sql = "select * from Product";
+        String sql = "select * from ProductTBL";
         ArrayList<Product> pList = new ArrayList<>();
         Product p = null;
         try (Connection conn = DBConfig.getConnection()) {
@@ -36,6 +36,5 @@ public class ProductDAO {
         }
         return pList;
     }
- 
 }
 

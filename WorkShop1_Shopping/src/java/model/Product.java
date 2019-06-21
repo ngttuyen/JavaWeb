@@ -10,10 +10,10 @@ package model;
  * @author Quynh
  */
 public class Product {
-    private String productName,productID;
-    private int productPrice;
+    private String productName;
+    private int productPrice,productID;;
 
-    public Product(String productName, String productID, int productPrice) {
+    public Product(String productName, int productID, int productPrice) {
         this.productName = productName;
         this.productID = productID;
         this.productPrice = productPrice;
@@ -35,11 +35,11 @@ public class Product {
         this.productName = productName;
     }
 
-    public String getProductID() {
+    public int getProductID() {
         return productID;
     }
 
-    public void setProductID(String productID) {
+    public void setProductID(int productID) {
         this.productID = productID;
     }
 
