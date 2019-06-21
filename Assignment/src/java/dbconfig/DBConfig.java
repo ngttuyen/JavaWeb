@@ -28,7 +28,4 @@ public class DBConfig {
         }
         return conn;
     }
-    public static void main(String[] args) {
-        getConnection();
-    }
 }

@@ -83,7 +83,7 @@
                                     <div class="card-body">
                                         <h3>Sign Up Today</h3>
                                         <p>Please fill out this form to register</p>
-                                        <form action="ProcessRegister" method="post">
+                                        <form action="ProcessRegister" method="get">
                                             <div class="alert-danger" role="alert">
                                                 ${requestScope.error}
                                             </div><br>

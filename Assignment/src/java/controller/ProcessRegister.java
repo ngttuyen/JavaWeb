@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
  * @author Do Duong
  */
 public class ProcessRegister extends HttpServlet {
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     }
@@ -36,14 +36,14 @@ public class ProcessRegister extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
-        if (UserDAO.checkUsersName(username) == true) {
+        if ((UserDAO.checkUsersName(username) == true) && (UserDAO.checkEmail(email) == true)) {
+            request.setAttribute("error", "Username and Email is alrady in use");
+            request.getRequestDispatcher("home.jsp").forward(request, response);
+        } else if (UserDAO.checkUsersName(username) == true) {
             request.setAttribute("error", "Username is alrady in use");
             request.getRequestDispatcher("home.jsp").forward(request, response);
         } else if (UserDAO.checkEmail(email) == true) {
             request.setAttribute("error", "Email is alrady in use");
-            request.getRequestDispatcher("home.jsp").forward(request, response);
-        } else if ((UserDAO.checkUsersName(username) == true) && (UserDAO.checkEmail(email) == true)) {
-            request.setAttribute("error", "Username and Email is alrady in use");
             request.getRequestDispatcher("home.jsp").forward(request, response);
         } else {
             User usr = UserDAO.register(username, password, email);
@@ -54,9 +54,8 @@ public class ProcessRegister extends HttpServlet {
                     throw new ServletException(e.getMessage());
                 }
             }
+            response.sendRedirect("updateinfo.jsp");
         }
-        response.sendRedirect("updateinfo.jsp");
-        
     }
 
     /**

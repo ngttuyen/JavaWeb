@@ -14,9 +14,9 @@ public class UserDAO {
     private static final String insUserSt = "insert into USERS(UserName,PassWord,Email) values(?,?,?)";
     private static final String getAvtSt = "select * from USERS where UserName = ?";
     private static final String findUsername = "select UserName from USERS where Username = ?";
-    private static final String findEmail = "select Email from USERS where Email";
+    private static final String findEmail = "select Email from USERS where Email=?";
 
-    // Đăng kí User
+ 
     public static boolean checkUsersName(String UserName) {
 
         try (Connection conn = DBConfig.getConnection()) {
@@ -46,7 +46,7 @@ public class UserDAO {
         }
         return false;
     }
-
+   // Đăng kí User
     public static User register(String username, String password, String email) {
         User u = null;
         try (Connection con = DBConfig.getConnection()) {
@@ -108,5 +108,8 @@ public class UserDAO {
             e.printStackTrace();
         }
         return null;
+    }
+    public static void main(String[] args) {
+        System.out.println(checkEmail("a@b.c"));
     }
 }
