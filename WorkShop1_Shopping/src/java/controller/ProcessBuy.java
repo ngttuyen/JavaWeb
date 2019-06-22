@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +37,7 @@ public class ProcessBuy extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProcessBuy</title>");            
+            out.println("<title>Servlet ProcessBuy</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ProcessBuy at " + request.getContextPath() + "</h1>");
@@ -71,9 +72,14 @@ public class ProcessBuy extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            String itemID = request.getParameter("item");
-            OrderLine or = new OrderLine(itemID);
-            request.getRequestDispatcher("ProcessProduct").forward(request, response);
+        String itemID = request.getParameter("item");
+        OrderLine or = new OrderLine();
+        or.adddProduct(Integer.parseInt(itemID));
+        //HashMap<String,OrderLine> myMap = OrderLine.getMap;
+        String s = OrderLine.getCard();
+        //request.setAttribute("List", myMap);
+//        .setAttribute("List", s);
+        request.getRequestDispatcher("ProcessProduct").forward(request, response);
     }
 
     /**

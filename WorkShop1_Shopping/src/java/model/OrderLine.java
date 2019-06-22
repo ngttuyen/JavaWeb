@@ -6,7 +6,6 @@
 package model;
 
 import static dao.ProductDAO.getAllProduct;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -15,23 +14,37 @@ import java.util.HashMap;
  */
 public class OrderLine {
 
-    private int orderID, quantity, price;
+    static HashMap<String, OrderLine> buyerList;
 
-    public OrderLine(int orderID, int quantity, int price) {
+    private int quantity, price;
 
-        this.orderID = orderID;
+    public OrderLine() {
+        buyerList = new HashMap<String, OrderLine>();
+    }
+
+    public OrderLine(int quantity, int price) {
         this.quantity = quantity;
         this.price = price;
     }
 
-    static HashMap<String, ArrayList<OrderLine>> bList = new HashMap<String, ArrayList<OrderLine>>();
-
-    public static HashMap<String, ArrayList<OrderLine>> getAll() {
-        return bList;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public OrderLine(String productID) {
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public static HashMap<String, OrderLine> getMap() {
+        return buyerList;
     }
 
     public static Product getProduct(int productID) {
@@ -44,4 +57,38 @@ public class OrderLine {
         return p;
     }
 
+    public static void adddProduct(int productID) {
+        Product p = getProduct(productID);
+        OrderLine or = null;
+        int quantity = 1;
+        if (buyerList.containsKey(p.getProductName())) {
+            or = (OrderLine) buyerList.get(p.getProductName());
+            or.setQuantity(or.getQuantity() + 1);
+            or.setPrice(or.getPrice() + p.getProductPrice());
+            buyerList.replace(p.getProductName(), or);
+        } else {
+            or = new OrderLine(quantity, p.getProductPrice());
+            buyerList.put(p.getProductName(), or);
+        }
+    }
+
+    public static String getCard() {
+        String productName = "";
+        int quantity = 0;
+        int price = 0;
+        for (String name : buyerList.keySet()) {
+            productName = name;
+            quantity = buyerList.get(name).getQuantity();
+            price = buyerList.get(name).getPrice();
+        }
+        return productName + " " + price + " " + quantity;
+    }
+    public static void main(String[] args) {
+        OrderLine oo = new OrderLine();
+        oo.adddProduct(1);
+        oo.adddProduct(2);
+        oo.adddProduct(3);
+        oo.adddProduct(4);
+        
+    }
 }
