@@ -17,12 +17,12 @@ import model.Customer;
  */
 public class CustomerDAO {
 
-    public static Customer getCustomer(String customerID, String password) {
+    public static Customer getCustomer(int customerID, String password) {
         String sql = "select * from CustomerTBL where customerID = ? and Password = ?";
         Customer cus = null;
         try (Connection conn = DBConfig.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setString(1, customerID);
+            ps.setString(1, Integer.toString(customerID));
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -32,5 +32,8 @@ public class CustomerDAO {
             e.printStackTrace();
         }
         return cus;
+    }
+    public static Customer login(int customerID,String password){
+        return getCustomer(customerID, password);
     }
 }

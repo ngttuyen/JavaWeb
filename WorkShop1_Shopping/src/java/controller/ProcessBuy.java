@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.OrderLine;
 
 /**
@@ -72,13 +73,14 @@ public class ProcessBuy extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
         String itemID = request.getParameter("item");
-        OrderLine or = new OrderLine();
-        or.adddProduct(Integer.parseInt(itemID));
-        HashMap<String,OrderLine> myMap = OrderLine.getMap();
-        request.setAttribute("List", myMap);
-        //request.getRequestDispatcher("ProcessProduct").forward(request, response);
-        request.getRequestDispatcher("shoppingcard.jsp").forward(request, response);
+        OrderLine.adddProduct(Integer.parseInt(itemID));
+        HashMap<String, OrderLine> myMap = OrderLine.getMap();
+        int total = OrderLine.total();
+        session.setAttribute("List", myMap);
+        session.setAttribute("total", total);
+        request.getRequestDispatcher("ProcessProduct").forward(request, response);
     }
 
     /**

@@ -14,13 +14,9 @@ import java.util.HashMap;
  */
 public class OrderLine {
 
-    static HashMap<String, OrderLine> buyerList;
+    static HashMap<String, OrderLine> buyerList = new HashMap<String, OrderLine>();
 
     private int quantity, price;
-
-    public OrderLine() {
-        buyerList = new HashMap<String, OrderLine>();
-    }
 
     public OrderLine(int quantity, int price) {
         this.quantity = quantity;
@@ -70,5 +66,14 @@ public class OrderLine {
             or = new OrderLine(quantity, p.getProductPrice());
             buyerList.put(p.getProductName(), or);
         }
+    }
+
+    public static int total() {
+        int total = 0;
+        for (String name : buyerList.keySet()) {
+            int money = buyerList.get(name).getPrice();
+            total += money;
+        }
+        return total;
     }
 }

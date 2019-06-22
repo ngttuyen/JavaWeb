@@ -17,10 +17,11 @@
     </head>
     <body>
         <h1>Your shopping card</h1><P>
-        Customer : <select name="select">
-            <option></option>
-            <option></option>
-        </select><br><P>
+            Customer : <select name="select">
+                <c:forEach items="${sessionScope.username}" var="user">
+                    <option>${user}</option>
+                </c:forEach>
+            </select><br><P>
         <table border="1">
             <thead>
                 <tr>
@@ -29,15 +30,16 @@
                     <th>Price</th>
                 </tr>
             </thead>
-            <c:forEach items="${requestScope.List}" var="List">
+            <c:forEach items="${sessionScope.List}" var="List">
                 <tr>
                     <td>${List.key}</td>
                     <td>${List.value.quantity}</td>
                     <td>${List.value.price}</td>
                 </tr>
             </c:forEach>
-            Payment method: <input type="text" name="payment"/><br><P>
         </table><P>
-        <input type="submit" value="Continue"/>
+        <p>Total: ${sessionScope.total}</p><P>
+            Payment method: <input type="text" name="payment"/><br><P>
+            <input type="submit" value="Continue"/>
     </body>
 </html>
