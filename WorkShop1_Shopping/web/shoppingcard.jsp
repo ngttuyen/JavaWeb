@@ -16,27 +16,28 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Your shopping card</h1>
+        <h1>Your shopping card</h1><P>
         Customer : <select name="select">
             <option></option>
             <option></option>
-        </select><br>
+        </select><br><P>
         <table border="1">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
             <c:forEach items="${requestScope.List}" var="List">
                 <tr>
                     <td>${List.key}</td>
-                    <td>${List.value}</td>
+                    <td>${List.value.quantity}</td>
+                    <td>${List.value.price}</td>
                 </tr>
             </c:forEach>
-            <%
-                //HashMap<String, OrderLine> buyerList = (HashMap) ;
-//                for (String name : buyerList.keySet()) {
-//                    out.print(name + buyerList.get(name).getQuantity() + buyerList.get(name).getPrice());
-//                }
-                out.print(request.getAttribute("List"));
-            %>
-            Payment method: <input type="text" name="payment"/><br>
-            <input type="submit" value="Continue"/>
-        </table>
+            Payment method: <input type="text" name="payment"/><br><P>
+        </table><P>
+        <input type="submit" value="Continue"/>
     </body>
 </html>

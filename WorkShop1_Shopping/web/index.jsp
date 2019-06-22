@@ -14,8 +14,18 @@
     <body>
         <h1>Welcome to my shop</h1>
         <form action="ProcessProduct" method="post">
-            Your name: <input type="text" name="username"/>
+            <table>
+                <tr>
+                    <td>CustomerID :</td>
+                    <td><input type="text" name="username"/><br></td>
+                </tr>
+                <tr>
+                    <td>Password :</td>
+                    <td><input type="text" name="username"/><br></td>
+                </tr>
+            </table>
             <input type="submit" value="Continue"/>
         </form>
+        <p style="font-style: italic">Note : CustomerID and Password : 1234</p>
     </body>
 </html>

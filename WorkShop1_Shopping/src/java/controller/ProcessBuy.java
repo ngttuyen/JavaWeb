@@ -75,11 +75,10 @@ public class ProcessBuy extends HttpServlet {
         String itemID = request.getParameter("item");
         OrderLine or = new OrderLine();
         or.adddProduct(Integer.parseInt(itemID));
-        //HashMap<String,OrderLine> myMap = OrderLine.getMap;
-        String s = OrderLine.getCard();
-        //request.setAttribute("List", myMap);
-//        .setAttribute("List", s);
-        request.getRequestDispatcher("ProcessProduct").forward(request, response);
+        HashMap<String,OrderLine> myMap = OrderLine.getMap();
+        request.setAttribute("List", myMap);
+        //request.getRequestDispatcher("ProcessProduct").forward(request, response);
+        request.getRequestDispatcher("shoppingcard.jsp").forward(request, response);
     }
 
     /**

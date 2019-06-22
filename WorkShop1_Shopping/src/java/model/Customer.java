@@ -10,21 +10,27 @@ package model;
  * @author Quynh
  */
 public class Customer {
-    private String customerID,customerName;
 
-    public Customer(String customerID, String customerName) {
+    private int customerID;
+    private String customerName, Password;
+
+    public Customer(int customerID, String customerName, String Password) {
+        this.customerID = customerID;
+        this.customerName = customerName;
+        this.Password = Password;
+    }
+
+    public Customer(int customerID, String customerName) {
         this.customerID = customerID;
         this.customerName = customerName;
     }
-
-    public Customer() {
-    }
-
-    public String getCustomerID() {
+    
+    
+    public int getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(String customerID) {
+    public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
 
@@ -35,4 +41,14 @@ public class Customer {
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
+
+    
 }

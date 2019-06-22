@@ -71,24 +71,4 @@ public class OrderLine {
             buyerList.put(p.getProductName(), or);
         }
     }
-
-    public static String getCard() {
-        String productName = "";
-        int quantity = 0;
-        int price = 0;
-        for (String name : buyerList.keySet()) {
-            productName = name;
-            quantity = buyerList.get(name).getQuantity();
-            price = buyerList.get(name).getPrice();
-        }
-        return productName + " " + price + " " + quantity;
-    }
-    public static void main(String[] args) {
-        OrderLine oo = new OrderLine();
-        oo.adddProduct(1);
-        oo.adddProduct(2);
-        oo.adddProduct(3);
-        oo.adddProduct(4);
-        
-    }
 }
