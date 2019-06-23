@@ -18,7 +18,7 @@
     <body>
         <h1>Your shopping card</h1><P>
             Customer : <select name="select">
-                <option>${applicationScope.user}</option>
+                <option>${cookie['username'].value}</option>
             </select><br><P>
         <table border="1">
             <thead>

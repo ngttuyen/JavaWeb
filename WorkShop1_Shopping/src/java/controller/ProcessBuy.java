@@ -74,13 +74,13 @@ public class ProcessBuy extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String itemID = request.getParameter("item");
+        String username = request.getParameter("username");
         OrderLine.adddProduct(Integer.parseInt(itemID));
         HashMap<String, OrderLine> myMap = OrderLine.getMap();
         int total = OrderLine.total();
         request.getServletContext().setAttribute("List", myMap);
         request.getServletContext().setAttribute("total", total);
-        request.getServletContext().setAttribute("user", request.getAttribute("username"));
-        request.getRequestDispatcher("ProcessProduct").forward(request, response);
+        response.sendRedirect("product.jsp");
     }
 
     /**

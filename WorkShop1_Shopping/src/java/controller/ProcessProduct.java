@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -75,12 +76,13 @@ public class ProcessProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String username = request.getParameter("username");
-        request.setAttribute("username", username);
+        HttpSession session = request.getSession();
+        session.setAttribute("username", username);
         ArrayList<Product> pList = ProductDAO.getAllProduct();
         if (pList != null) {
             request.getServletContext().setAttribute("pList", pList);
         }
-        request.getRequestDispatcher("product.jsp").forward(request, response);
+        response.sendRedirect("product.jsp");
     }
 
     /**

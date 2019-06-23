@@ -33,7 +33,4 @@ public class CustomerDAO {
         }
         return cus;
     }
-    public static Customer login(int customerID,String password){
-        return getCustomer(customerID, password);
-    }
 }
