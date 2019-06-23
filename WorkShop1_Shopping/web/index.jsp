@@ -14,8 +14,7 @@
     <body>
         <h1>Welcome to my shop</h1>
         <form action="ProcessProduct" method="post">
-            <input type="text" name="username"/>
-            <input type="password" name="password"/>
+            Customer ID: <input type="text" name="username"/>
             <input type="submit" value="Continue"/>
         </form>
     </body>

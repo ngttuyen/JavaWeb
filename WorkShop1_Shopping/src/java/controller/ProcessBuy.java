@@ -73,13 +73,13 @@ public class ProcessBuy extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
         String itemID = request.getParameter("item");
         OrderLine.adddProduct(Integer.parseInt(itemID));
         HashMap<String, OrderLine> myMap = OrderLine.getMap();
         int total = OrderLine.total();
-        session.setAttribute("List", myMap);
-        session.setAttribute("total", total);
+        request.getServletContext().setAttribute("List", myMap);
+        request.getServletContext().setAttribute("total", total);
+        request.getServletContext().setAttribute("user", request.getAttribute("username"));
         request.getRequestDispatcher("ProcessProduct").forward(request, response);
     }
 

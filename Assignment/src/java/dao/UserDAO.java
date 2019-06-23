@@ -12,15 +12,15 @@ import model.User;
 public class UserDAO {
 
     private static final String getUsrSt = "select * from USERS where UserName = ? and PassWord = ?";
-    private static final String insUserSt = "insert into USERS(UserName,PassWord,Email,Status) values(?,?,?,'False')";
-    private static final String getAvtSt = "select * from USERS where UserName = ?";
+    private static final String insUserSt = "insert into USERS(UserName,PassWord,Email,Status) values(?,?,?,'2')";
+    private static final String getAvtSt = "select Avatar from USERS where UserName = ?";
     private static final String findUsername = "select UserName from USERS where Username = ?";
     private static final String findEmail = "select Email from USERS where Email=?";
     private static final String update = "update USERS set FullName = ? ,Age = ? ,"
-            + "Gender = ? ,Status = True ,UserRight = 3 where UserName = ?";
-    private static final String checkInfo = "select UserName from USERS where Status = 'True'";
+            + "Gender = ? ,Avatar =? ,Status = 1 where UserName = ?";
+    private static final String checkInfo = "select UserName from USERS where Status = 2";
 
-    public static boolean checkInfo(String username) {
+    public static boolean checkInfo() {
         try (Connection conn = DBConfig.getConnection()) {
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(checkInfo);
@@ -33,13 +33,15 @@ public class UserDAO {
         return false;
     }
 
-    public static boolean updateUserInfo(User usr) {
+    public static boolean updateUserInfo(String fullName,
+            int age, String gender, String username, String avatarPath) {
         try (Connection conn = DBConfig.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(update);
-            ps.setString(1, usr.getFullName());
-            ps.setString(2, Integer.toString(usr.getAge()));
-            ps.setString(3, usr.getGender());
-            ps.setString(4, usr.getUserName());
+            ps.setString(1, fullName);
+            ps.setString(2, Integer.toString(age));
+            ps.setString(3, gender);
+            ps.setString(4, avatarPath);
+            ps.setString(5, username);
             int result = ps.executeUpdate();
             if (result > 0) {
                 return true;
@@ -48,6 +50,11 @@ public class UserDAO {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        User u = checkLogin("tomcat123", "81dc9bdb52d04dc20036dbd8313ed055");
+        System.out.println(updateUserInfo("ChuongML", 19, "Female", "tomcat123", "ac.jgp"));
     }
 
     public static boolean checkUsersName(String UserName) {
@@ -130,20 +137,17 @@ public class UserDAO {
     }
 
     // Lấy Avatar User
-    public static byte[] getUserAvatar(String username) {
+    public static String getUserAvatar(String username) {
         try (Connection conn = DBConfig.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(getAvtSt);
             ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return rs.getBytes("Avatar");
+                return rs.getString("Avatar");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
-    }
-    public static void main(String[] args) {
-        System.out.println(checkInfo("abc"));
     }
 }

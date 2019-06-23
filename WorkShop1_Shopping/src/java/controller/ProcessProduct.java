@@ -74,12 +74,11 @@ public class ProcessProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
         String username = request.getParameter("username");
-        session.setAttribute("username", username);
+        request.setAttribute("username", username);
         ArrayList<Product> pList = ProductDAO.getAllProduct();
-        if ( pList != null) {
-            request.setAttribute("pList", pList);
+        if (pList != null) {
+            request.getServletContext().setAttribute("pList", pList);
         }
         request.getRequestDispatcher("product.jsp").forward(request, response);
     }

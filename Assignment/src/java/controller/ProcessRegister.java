@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import utils.Validate;
 
 /**
  *
@@ -36,14 +37,14 @@ public class ProcessRegister extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
-        if ((UserDAO.checkUsersName(username) == true) && (UserDAO.checkEmail(email) == true)) {
-            request.setAttribute("error", "Username and Email is alrady in use");
+        if ((Validate.checkUserName(username) == true) && (Validate.checkEmail(email) == true)) {
+            request.setAttribute("error", "Username and Email is already exist");
             request.getRequestDispatcher("home.jsp").forward(request, response);
-        } else if (UserDAO.checkUsersName(username) == true) {
-            request.setAttribute("error", "Username is alrady in use");
+        } else if (Validate.checkUserName(username) == true) {
+            request.setAttribute("error", "Username is already exist");
             request.getRequestDispatcher("home.jsp").forward(request, response);
-        } else if (UserDAO.checkEmail(email) == true) {
-            request.setAttribute("error", "Email is alrady in use");
+        } else if (Validate.checkEmail(email) == true) {
+            request.setAttribute("error", "Email is already exist");
             request.getRequestDispatcher("home.jsp").forward(request, response);
         } else {
             User usr = UserDAO.register(username, password, email);
