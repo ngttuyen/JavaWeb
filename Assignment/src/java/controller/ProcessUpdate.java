@@ -31,11 +31,11 @@ public class ProcessUpdate extends HttpServlet {
         Part photo = request.getPart("myImage");
         String fileName = extractFileName(photo);
         fileName = new File(fileName).getName();
+        String path = this.getFolderUpload().getAbsolutePath() + File.separator + fileName;
         photo.write(this.getFolderUpload().getAbsolutePath() + File.separator + fileName);
-
         // Cập Nhật thông tin User Avatar vv...
-        UserDAO.updateUserInfo(fullName, age, gender, username, fileName);
-        getServletContext().getRequestDispatcher("/updateinfo.jsp").forward(request, response);
+        UserDAO.updateUserInfo(fullName, age, gender, username, path); 
+        getServletContext().getRequestDispatcher("/chat.jsp").forward(request, response);
     }
 
     /**

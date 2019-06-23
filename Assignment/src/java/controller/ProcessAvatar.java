@@ -17,9 +17,9 @@ public class ProcessAvatar extends HttpServlet {
 //        response.setContentType("image/jpeg");
 //        response.setContentLength(avatar.length);
 //        response.getOutputStream().write(avatar);
-        // Hiển thị hình ảnh trên trang chính của User
-        // gắn link trên vào thẻ <img>
-        //${pageContext.servletContext.contextPath}/ProcessAvatar?usernam=${sessionScope.user.userName}
+//         Hiển thị hình ảnh trên trang chính của User
+//         gắn link trên vào thẻ <img>
+//        ${pageContext.servletContext.contextPath}/ProcessAvatar?usernam=${sessionScope.user.userName}
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
