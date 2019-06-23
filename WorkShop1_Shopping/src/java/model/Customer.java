@@ -24,8 +24,7 @@ public class Customer {
         this.customerID = customerID;
         this.customerName = customerName;
     }
-    
-    
+
     public int getCustomerID() {
         return customerID;
     }
@@ -50,5 +49,4 @@ public class Customer {
         this.Password = Password;
     }
 
-    
 }

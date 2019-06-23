@@ -39,7 +39,7 @@
                 </c:forEach>
             </tbody>
         </table>
-        <a href="shoppingcard.jsp">View Shopping Card</a>
-
+        <a href="shoppingcard.jsp">View Shopping Card</a><P>
+            <a href="ProcessLogout">Logout</a>
     </body>
 </html>

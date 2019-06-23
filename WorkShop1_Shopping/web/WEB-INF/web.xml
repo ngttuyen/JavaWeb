@@ -8,6 +8,10 @@
         <servlet-name>ProcessBuy</servlet-name>
         <servlet-class>controller.ProcessBuy</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProcessLogout</servlet-name>
+        <servlet-class>controller.ProcessLogout</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProcessProduct</servlet-name>
         <url-pattern>/ProcessProduct</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>ProcessBuy</servlet-name>
         <url-pattern>/ProcessBuy</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessLogout</servlet-name>
+        <url-pattern>/ProcessLogout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

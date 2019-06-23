@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.CustomerDAO;
 import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Customer;
 import model.Product;
 
 /**
@@ -75,14 +77,20 @@ public class ProcessProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("username");
+        int username = Integer.parseInt(request.getParameter("username"));
+        String pw = request.getParameter("password");
         HttpSession session = request.getSession();
-        session.setAttribute("username", username);
-        ArrayList<Product> pList = ProductDAO.getAllProduct();
-        if (pList != null) {
-            request.getServletContext().setAttribute("pList", pList);
+        Customer c = CustomerDAO.getCustomer(username, pw);
+        if (c != null) {
+            session.setAttribute("user", c);
+            ArrayList<Product> pList = ProductDAO.getAllProduct();
+            if (pList != null) {
+                request.getServletContext().setAttribute("pList", pList);
+            }
+            response.sendRedirect("product.jsp");
+        } else {
+            response.sendRedirect("index.jsp");
         }
-        response.sendRedirect("product.jsp");
     }
 
     /**

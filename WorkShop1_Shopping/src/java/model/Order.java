@@ -12,7 +12,8 @@ import java.util.Date;
  * @author Quynh
  */
 public class Order {
-    private String orderID,PaymentMethod;
+
+    private String orderID, PaymentMethod;
     private int customerID;
     private Date date;
 
@@ -54,6 +55,5 @@ public class Order {
     public void setDate(Date date) {
         this.date = date;
     }
-    
-    
+
 }

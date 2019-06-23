@@ -18,7 +18,7 @@
     <body>
         <h1>Your shopping card</h1><P>
             Customer : <select name="select">
-                <option>${cookie['username'].value}</option>
+                <option>${sessionScope.user.customerID}</option>
             </select><br><P>
         <table border="1">
             <thead>

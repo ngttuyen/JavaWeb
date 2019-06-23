@@ -12,10 +12,16 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%
+            if (session.getAttribute("user") != null) {
+                response.sendRedirect("product.jsp");
+            }
+        %>
         <h1>Welcome to my shop</h1>
         <form action="ProcessProduct" method="post">
             Customer ID: <input type="text" name="username"/>
-            <input type="submit" value="Continue"/>
+            Password: <input type="password" name="password"/>
+            <input type="submit" value="Login"/>
         </form>
     </body>
 </html>

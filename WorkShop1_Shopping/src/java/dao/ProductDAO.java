@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-
 /**
  *
  * @author Quynh
@@ -27,7 +26,7 @@ public class ProductDAO {
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                p = new Product(rs.getString(2),rs.getInt(1),
+                p = new Product(rs.getString(2), rs.getInt(1),
                         rs.getInt(3));
                 pList.add(p);
             }
@@ -37,4 +36,3 @@ public class ProductDAO {
         return pList;
     }
 }
-

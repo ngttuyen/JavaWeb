@@ -10,8 +10,11 @@ package model;
  * @author Quynh
  */
 public class Product {
+
     private String productName;
-    private int productPrice,productID;;
+    private int productPrice, productID;
+
+    ;
 
     public Product(String productName, int productID, int productPrice) {
         this.productName = productName;
@@ -23,7 +26,7 @@ public class Product {
         this.productName = productName;
         this.productPrice = productPrice;
     }
-    
+
     public Product() {
     }
 
@@ -50,6 +53,5 @@ public class Product {
     public void setProductPrice(int productPrice) {
         this.productPrice = productPrice;
     }
-    
-    
+
 }
