@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <servlet>
-        <servlet-name>ProcessProduct</servlet-name>
-        <servlet-class>controller.ProcessProduct</servlet-class>
-    </servlet>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>listener.Listener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>ProcessBuy</servlet-name>
         <servlet-class>controller.ProcessBuy</servlet-class>
@@ -12,10 +12,10 @@
         <servlet-name>ProcessLogout</servlet-name>
         <servlet-class>controller.ProcessLogout</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>ProcessProduct</servlet-name>
-        <url-pattern>/ProcessProduct</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>ProcessLogin</servlet-name>
+        <servlet-class>controller.ProcessLogin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProcessBuy</servlet-name>
         <url-pattern>/ProcessBuy</url-pattern>
@@ -23,6 +23,10 @@
     <servlet-mapping>
         <servlet-name>ProcessLogout</servlet-name>
         <url-pattern>/ProcessLogout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessLogin</servlet-name>
+        <url-pattern>/ProcessLogin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -6,24 +6,19 @@
 package controller;
 
 import dao.CustomerDAO;
-import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Customer;
-import model.Product;
 
 /**
  *
  * @author Quynh
  */
-public class ProcessProduct extends HttpServlet {
+public class ProcessLogin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +37,10 @@ public class ProcessProduct extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProcessProduct</title>");
+            out.println("<title>Servlet ProcessLogin</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProcessProduct at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ProcessLogin at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -77,20 +72,10 @@ public class ProcessProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int username = Integer.parseInt(request.getParameter("username"));
-        String pw = request.getParameter("password");
         HttpSession session = request.getSession();
-        Customer c = CustomerDAO.getCustomer(username, pw);
-        if (c != null) {
-            session.setAttribute("user", c);
-            ArrayList<Product> pList = ProductDAO.getAllProduct();
-            if (pList != null) {
-                request.getServletContext().setAttribute("pList", pList);
-            }
-            response.sendRedirect("product.jsp");
-        } else {
-            response.sendRedirect("index.jsp");
-        }
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+//        if(CustomerDAO.getCustomer(0, password))
     }
 
     /**

@@ -1,10 +1,11 @@
 <%-- 
-    Document   : index
-    Created on : Jun 20, 2019, 3:28:26 PM
+    Document   : product
+    Created on : Jun 20, 2019, 3:35:42 PM
     Author     : Quynh
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,15 +14,37 @@
     </head>
     <body>
         <%
-            if (session.getAttribute("user") != null) {
-                response.sendRedirect("product.jsp");
+            if(session.getAttribute("pList")!=null){
+                session.invalidate();
             }
-        %>
-        <h1>Welcome to my shop</h1>
-        <form action="ProcessProduct" method="post">
-            Customer ID: <input type="text" name="username"/>
-            Password: <input type="password" name="password"/>
-            <input type="submit" value="Login"/>
-        </form>
+        %> 
+        <h1>Select thing to buy</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${applicationScope.pList}" var="pList">
+                    <tr>
+                        <td>${pList.productID}</td>
+                        <td>${pList.productName}</td>
+                        <td>${pList.productPrice}</td>
+                        <td>
+                            <form action="ProcessBuy" method="post">
+                                <input hidden type="text" name="item" value="${pList.productID}"/>
+                                <input type="submit" value="Buy"/>
+                            </form>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+        <a href="shoppingcard.jsp">View Shopping Card</a><P>
+            <a href="ProcessLogin">Login</a><P>
     </body>
 </html>
