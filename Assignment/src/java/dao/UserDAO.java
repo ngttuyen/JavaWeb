@@ -4,7 +4,6 @@ import dbconfig.DBConfig;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import utils.MD5;
 
 import model.User;
@@ -18,20 +17,6 @@ public class UserDAO {
     private static final String findEmail = "select Email from USERS where Email=?";
     private static final String update = "update USERS set FullName = ? ,Age = ? ,"
             + "Gender = ? ,Avatar =? ,Status = 1 where UserName = ?";
-    private static final String checkInfo = "select UserName from USERS where Status = 2";
-
-    public static boolean checkInfo() {
-        try (Connection conn = DBConfig.getConnection()) {
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery(checkInfo);
-            if (rs.next()) {
-                return true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
 
     public static boolean updateUserInfo(String fullName,
             int age, String gender, String username, String avatarPath) {
@@ -50,11 +35,6 @@ public class UserDAO {
             e.printStackTrace();
         }
         return false;
-    }
-
-    public static void main(String[] args) {
-        User u = checkLogin("tomcat123", "81dc9bdb52d04dc20036dbd8313ed055");
-        System.out.println(updateUserInfo("ChuongML", 19, "Female", "tomcat123", "ac.jgp"));
     }
 
     public static boolean checkUsersName(String UserName) {
@@ -118,15 +98,20 @@ public class UserDAO {
         try (Connection conn = DBConfig.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(getUsrSt);
             ps.setString(1, username);
-            ps.setString(2, MD5.getMd5(password));
+            // Xem lại chỗ này nếu thêm getMD5 vào nó ko lấy đc dữ liệu
+            //ps.setString(2, MD5.getMd5(password));
+            ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                u = new User(rs.getString("UserName"),
+                u = new User(rs.getString("Password"),
+                        rs.getString("UserName"),
                         rs.getString("FullName"),
                         rs.getString("Gender"),
                         rs.getString("Email"),
+                        rs.getString("Avatar"),
                         rs.getInt("UID"),
-                        rs.getInt("Age"));
+                        rs.getInt("Age"),
+                        rs.getInt("Status"));
             }
             rs.close();
             ps.close();

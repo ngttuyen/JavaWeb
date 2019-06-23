@@ -1,5 +1,6 @@
 package controller;
 
+import dao.UserDAO;
 import java.io.File;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,7 +8,9 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
+import model.User;
 
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
         maxFileSize = 1024 * 1024 * 50, // 
@@ -18,23 +21,20 @@ public class ProcessUpdate extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        String username = user.getUserName();
         String fullName = request.getParameter("fullName");
         int age = Integer.parseInt(request.getParameter("age"));
         String gender = request.getParameter("gender");
-        
-        
-        
-        
-        
-
-// Avatar process: 
+        // Xử lí upload file  
         Part photo = request.getPart("myImage");
         String fileName = extractFileName(photo);
-        // refines the fileName in case it is an absolute path
         fileName = new File(fileName).getName();
         photo.write(this.getFolderUpload().getAbsolutePath() + File.separator + fileName);
-//        }
-        request.setAttribute("message", "Upload File Success!");
+
+        // Cập Nhật thông tin User Avatar vv...
+        UserDAO.updateUserInfo(fullName, age, gender, username, fileName);
         getServletContext().getRequestDispatcher("/updateinfo.jsp").forward(request, response);
     }
 
