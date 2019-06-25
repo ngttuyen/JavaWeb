@@ -16,9 +16,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="ProcessCheckOut" method="post">
+
+        <form action="ProcessCheckout" method="post">
             <h1>Your shopping card</h1><P>
-                ${sessionScope.customer}
+                ${sessionScope.m.customerID}
             <table border="1">
                 <thead>
                     <tr>
@@ -36,7 +37,7 @@
                 </c:forEach>
             </table><P>
             <p>Total: ${sessionScope.total}</p><P>
-                Payment method: <input type="text" name="payment"/><br><P>
+                Payment method: <input type="text" name="payment"/><br><P>               
                 <input type="submit" value="Continue"/>
         </form>
     </body>

@@ -8,9 +8,11 @@ package dao;
 import java.sql.Connection;
 import model.Product;
 import dbconfig.DBConfig;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import model.OrderLine;
 
 /**
  *
@@ -34,5 +36,16 @@ public class ProductDAO {
             e.printStackTrace();
         }
         return pList;
+    }
+
+    public static boolean insertOrder(OrderLine or) {
+        String insert = "insert into OrderLine values(?,?,?)";
+        try (Connection conn = DBConfig.getConnection()) {
+            PreparedStatement ps = conn.prepareStatement(insert);
+            ps.setString(1, Integer.toString(or.getQuantity()));
+            //ps.setString(2, );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

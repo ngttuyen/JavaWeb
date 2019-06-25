@@ -5,7 +5,6 @@
  */
 package controller;
 
-import dao.CustomerDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,13 +12,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Customer;
 
 /**
  *
- * @author Quynh
+ * @author quynh
  */
-public class ProcessLogin extends HttpServlet {
+public class ProcessCheckout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +36,10 @@ public class ProcessLogin extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProcessLogin</title>");
+            out.println("<title>Servlet ProcessCheckout</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProcessLogin at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ProcessCheckout at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -74,12 +72,10 @@ public class ProcessLogin extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        Customer m = CustomerDAO.getCustomer(username, password);
-        if (m != null) {
-            session.setAttribute("user", m);
-            response.sendRedirect("index.jsp");
+        if (session.getAttribute("user") == null) {
+            response.sendRedirect("login.jsp");
+        } else {
+            //response.sendRedirect("index.jsp");
         }
     }
 

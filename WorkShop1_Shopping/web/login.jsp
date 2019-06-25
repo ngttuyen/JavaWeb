@@ -14,8 +14,8 @@
     <body>
         <h1>Login</h1>
         <form action="ProcessLogin" method="post">
-            Username: <input type="text" name="username">
-            Password: <input type="password" name="password">
+            Username: <input type="text" name="username"><P>
+            Password: <input type="password" name="password"><P>
             <input type="submit" value="Login">
         </form>
     </body>

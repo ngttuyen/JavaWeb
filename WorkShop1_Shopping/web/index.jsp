@@ -13,11 +13,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%
-            if(session.getAttribute("pList")!=null){
-                session.invalidate();
-            }
-        %> 
         <h1>Select thing to buy</h1>
         <table border="1">
             <thead>
@@ -45,6 +40,6 @@
             </tbody>
         </table>
         <a href="shoppingcard.jsp">View Shopping Card</a><P>
-            <a href="ProcessLogin">Login</a><P>
+            <a href="login.jsp">Login</a><P>
     </body>
 </html>

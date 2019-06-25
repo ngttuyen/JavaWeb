@@ -16,6 +16,10 @@
         <servlet-name>ProcessLogin</servlet-name>
         <servlet-class>controller.ProcessLogin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProcessCheckout</servlet-name>
+        <servlet-class>controller.ProcessCheckout</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProcessBuy</servlet-name>
         <url-pattern>/ProcessBuy</url-pattern>
@@ -27,6 +31,10 @@
     <servlet-mapping>
         <servlet-name>ProcessLogin</servlet-name>
         <url-pattern>/ProcessLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessCheckout</servlet-name>
+        <url-pattern>/ProcessCheckout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
