@@ -10,32 +10,15 @@ import dao.UserDAO;
 
 public class ProcessLogin extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ProcessLogin</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ProcessLogin at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         HttpSession session = request.getSession();
-        // Lưu user vào session
         User user = UserDAO.checkLogin(username, password);
         if (user != null) {
+            // Lưu user vào session
             session.setAttribute("user", user);
             Cookie uidCk = new Cookie("uid", String.valueOf(user.getUid()));
             Cookie usrCk = new Cookie("username", user.getUserName());
@@ -44,12 +27,13 @@ public class ProcessLogin extends HttpServlet {
             response.addCookie(uidCk);
             response.addCookie(usrCk);
             if (user.getStatus() == 2) {
-                request.getRequestDispatcher("updateinfo.jsp").forward(request, response);
+                request.getRequestDispatcher("update_info.jsp").forward(request, response);
             } else if (user.getStatus() == 1) {
+                response.sendRedirect("home.jsp");
                // Chuyển người dùng tới trang xác nhận email
             } else {
                 // Xác nhận đầy đủ rồi thì chuyển vào trang chính
-                response.sendRedirect("chat.jsp");
+                response.sendRedirect("home.jsp");
             }
         }
     }

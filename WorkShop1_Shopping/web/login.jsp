@@ -9,14 +9,25 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Login</title>
     </head>
     <body>
         <h1>Login</h1>
         <form action="ProcessLogin" method="post">
-            Username: <input type="text" name="username"><P>
-            Password: <input type="password" name="password"><P>
-            <input type="submit" value="Login">
+            <table>
+                <tr>
+                    <td>Username: </td>
+                    <td><input type="text" name="username"></td>
+                </tr>
+                <tr>
+                    <td>Password: </td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Login"></td>
+                <tr>
+            </table>
+
         </form>
     </body>
 </html>

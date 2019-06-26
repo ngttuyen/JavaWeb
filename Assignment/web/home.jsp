@@ -1,191 +1,172 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+<%@ page import="model.User" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    User usr = (User) session.getAttribute("user");
+//    if(usr == null) response.sendRedirect("register.jsp");
+%>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Crush</title>
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body id="home">
-        <%
-            if (session.getAttribute("user") != null) {
-                response.sendRedirect("ProcessUserHome");
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Account</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles-chat.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+</head>
+<body>
+<div id="frame">
+    <div id="sidepanel">
+        <!----- Pofile của mình hiện ở đây ----->
+        <div id="profile">
+            <div class="wrap">
+                <img id="profile-img" src="<%=usr.getAvatar()%>" class="online" alt="" />
+                <p><%=usr.getFullName()%></p>
+                <button class="btn btn-primary btn-sm ml-5">Logout</button>
+            </div>
+        </div>
+        <!--- Khung tìm Kiếm ---->
+        <div id="search">
+            <label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
+            <input type="text" placeholder="Search..." />
+        </div>
+        <div class="container m-3">
+            <div class="row">
+                <button id="btn-logout" class="btn btn-sm btn-primary m-1">Logout</button>
+                <button id="btn-profile" class="btn btn-sm btn-secondary m-1">Profile</button>
+                <button id="btn-chat" class="btn btn-sm btn-danger m-1">Chat</button>
+                <button id="btn-find-crush" class="btn btn-sm btn-success m-1">Find my Crush!</button>
+            </div>
+        </div>
+        <script>
+            $("#btn-chat").click(function() {
+                $(".find-crush").hide();
+                // $("#contacts").empty();
+                $(".contact-profile").show();
+                $(".messages").show();
+                $(".message-input").show();
+                $(".contact-profile").empty();
+                // $(".messages").empty();
+            });
+            $("#btn-logout").click(function() {
+                window.location.href='login.html';
+            })
+            $("#btn-profile").click(function() {
+                window.location.href='updateinfo.html';
+            })
+            $("#btn-find-crush").click(function() {
+                $("#contacts").empty();
+                $(".find-crush").show();
+                $(".contact-profile").hide();
+                $(".messages").hide();
+                $(".message-input").hide();
+            });
+        </script>
+        <!--- Danh sách bạn bè ---->
+        <div id="contacts">
+            <ul>
+                <!--- E viết code để đưa list friend lên theo mẫu div này nhé ---->
+                <li class="contact">
+                    <div class="wrap">
+                        <span class="contact-status online"></span>  <!--- Trạng thái đang hoạt động ---->
+                        <img src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
+                        <div class="meta">
+                            <p class="name">Dương Đẹp Trai</p>
+                            <p class="preview">Đẹp trai vl</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="contact active">
+                    <div class="wrap">
+                        <span class="contact-status busy"></span><!--- Trạng thái đang bận ---->
+                        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                        <div class="meta">
+                            <p class="name">Thúy Hằng</p>
+                            <p class="preview">Thầy Lành Khó Tính VL</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="contact">
+                    <div class="wrap">
+                        <span class="contact-status away"></span>
+                        <img src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
+                        <div class="meta">
+                            <p class="name">Trần Văn Chương</p>
+                            <p class="preview">Ố ồ, Bú cu cho 5 ngàn</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <script>
+            var header = document.getElementById("contacts");
+            var btns = header.getElementsByClassName("contact");
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener("click", function() {
+                    var current = document.getElementsByClassName("active");
+                    current[0].className = current[0].className.replace(" active", "");
+                    this.className += " active";
+                });
             }
-        %>
-        
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-            <div class="container">
-                <a href="home.jsp" class="navbar-brand">Crush</a>
-                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#home" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="login.jsp" class="nav-link">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#explore-head-section" class="nav-link">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#share-head-section" class="nav-link">How We Work?</a>
-                        </li>
-                    </ul>
-                </div>
+        </script>
+    </div>
+    <div class="content">
+        <div class="find-crush h-75 w-25">
+            <img id="crush-ava" src="img/login.jpg">
+            <div class="cruch-btn-group">
+                <button class="btn-hover color-4">CRUSH</button>
+                <button class="btn-hover color-8">PASS</button>
             </div>
-        </nav>
-
-        <!-- HOME SECTION -->
-        <header id="home-section">
-            <div class="dark-overlay">
-                <div class="home-inner">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-8 d-none d-lg-block">
-                                <h1 class="display-4">Find <strong>your true love</strong></h1>
-                                <div class="d-flex flex-row">
-                                    <div class="p-4 align-self-start">
-                                        <i class="fa fa-check"></i>
-                                    </div>
-                                    <div class="p-4 align-self-end">
-                                        <p class="display-4">Easy To Use</p>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex flex-row">
-                                    <div class="p-4 align-self-start">
-                                        <i class="fa fa-check"></i>
-                                    </div>
-                                    <div class="p-4 align-self-end">
-                                        <p class="display-4">Safe</p>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex flex-row">
-                                    <div class="p-4 align-self-start">
-                                        <i class="fa fa-check"></i>
-                                    </div>
-                                    <div class="p-4 align-self-end">
-                                        <p class="display-4">Private</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="card bg-danger text-center card-form">
-                                    <div class="card-body">
-                                        <h3>Sign Up Today</h3>
-                                        <p>Please fill out this form to register</p>
-                                        <form action="ProcessRegister" method="get">
-                                            <div class="alert-danger" role="alert">
-                                                ${requestScope.error}
-                                            </div><br>
-                                            <div class="form-group">
-                                                <input required type="text" class="form-control form-control-lg" placeholder="Username" name="username">
-                                            </div>
-                                            <div class="form-group">
-                                                <input required type="email" class="form-control form-control-lg" placeholder="Email" name="email">
-                                            </div>
-                                            <div class="form-group">
-                                                <input required type="password" class="form-control form-control-lg" placeholder="Password" name="password">
-                                            </div>
-                                            <div class="form-group">
-                                                <input required type="password" class="form-control form-control-lg" placeholder="Confirm Password" name="confirmPassword">
-                                            </div>
-                                            <input type="submit" class="btn btn-outline-light btn-block" value="Register">
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- ABOUT HEAD -->
-        <section id="explore-head-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <div class="py-5">
-                            <h1 class="display-4">About Us</h1>
-                            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt sed, magni, veritatis aliquam sequi eveniet? Rerum quia accusantium alias provident perferendis</p>
-                            <a href="#" class="btn btn-outline-secondary">More information</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- HOW.. HEAD -->
-        <section id="share-head-section" class="bg-danger">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <div class="py-5">
-                            <h1 class="display-4">How We Work?</h1>
-                            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt sed, magni, veritatis aliquam sequi eveniet? Rerum quia accusantium alias provident perferendis</p>
-                            <a href="#" class="btn btn-outline-light">Find Out More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- MAIN FOOTER -->
-        <footer id="main-footer" class="bg-dark">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <div class="py-4">
-                            <h1 class="h3">Crush Team</h1>
-                            <p>Copyright &copy; 2019</p>
-                            <button class="btn btn-danger" data-toggle="modal" data-target="#contactModal">Contact Us</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <!-- CONTACT MODAL -->
-        <div class="modal fade text-dark" id="contactModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="contactModalTitle">Contact Us</h5>
-                        <button class="close" data-dismiss="modal"><span>&times;</span></button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Message</label>
-                                <textarea class="form-control"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-danger btn-block">Submit</button>
-                    </div>
-                </div>
+        </div>
+        <div class="contact-profile"><!--- Thôn tin cá nhân của người chat--->
+            <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+            <p>Trần Văn Chương</p>
+        </div>
+        <div class="messages" id = "messages"><!--- Tin nhắn hội thoại ở đây--->
+            <ul>
+                <li class="sent">
+                    <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
+                    <p>Bú cu không chương?</p>
+                </li>
+                <li class="replies">
+                    <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                    <p>Oke 5k</p>
+                </li>
+                <li class="replies">
+                    <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                    <p>oke..</p>
+                </li>
+                <li class="sent">
+                    <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                    <p>Oke chốt 4.5k không bớt</p>
+                </li>
+            </ul>
+        </div>
+        <script>
+            $(".contact").click(function() {
+                $(".contact-profile").empty();
+                $(".messages").empty();
+            });
+        </script>
+        <!-------- Ta không biết mi có dùng form hay ko nếu dùng thêm vô đây ---->
+        <div class="message-input">
+            <div class="wrap">
+                <form id="messageForm" onsubmit="function x(evt) {
+                  evt.preventDefault();
+                  alert('XX');
+                }" name="messageForm" nameForm="messageForm">
+                        <input type="text" id="message" placeholder="Write your message..." />
+                    <button class="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                </form>
             </div>
         </div>
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-    </body>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="js/chat.js"></script>
 </html>

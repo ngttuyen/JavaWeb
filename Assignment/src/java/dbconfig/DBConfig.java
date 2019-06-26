@@ -10,21 +10,18 @@ import java.sql.DriverManager;
 
 /**
  *
- * @author Quynh
+ * @author quynh
  */
 public class DBConfig {
-
-    public static Connection getConnection() {
-        String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-        String username = "sa";
-        String password = "duong";
-        String url = "jdbc:sqlserver://localhost:5050;databaseName=CRUSH";
+    public static Connection getConnection(){
+        String username ="sa";
+        String pw = "duong";
+        String url ="jdbc:sqlserver://localhost:5050;databaseName=CRUSH";
         Connection conn = null;
         try {
-            Class.forName(driver);
-            conn = DriverManager.getConnection(url, username, password);
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            conn = DriverManager.getConnection(url,username,pw);
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return conn;
     }
