@@ -16,10 +16,11 @@
         <title>Shopping card</title>
     </head>
     <body>
-
+        <c:if test="${sessionScope.user==null}">
+            <p hidden id="login">False</p>
+        </c:if>
         <form action="ProcessCheckout" method="post">
             <h1>Your shopping card</h1><P>
-                ${sessionScope.m.customerID}
             <table border="1">
                 <thead>
                     <tr>
@@ -37,8 +38,17 @@
                 </c:forEach>
             </table><P>
             <p>Total: ${sessionScope.total}</p><P>
-                Payment method: <input type="text" name="payment"/><br><P>               
-                <input type="submit" value="Continue"/>
+                Payment method: <input type="text" name="payment"/><br><P>
+                <script type="text/javascript">
+                    function checkCard() {
+                        var check = document.getElementById("login").innerHTML;
+                        if (check === 'False') {
+                            alert('Please Login');
+                        }
+                    }
+                </script>
+                <input type="submit" value="Continue" onclick="return checkCard()"/>
+
         </form>
     </body>
 </html>
