@@ -3,7 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/quynh/Desktop/JavaWeb/WorkShop1_Shopping/src/java/model/Order.java</file>
+            <file>file:/C:/Users/quynh/Desktop/JavaWeb/WorkShop1_Shopping/src/java/dao/OrderDAO.java</file>
             <file>file:/C:/Users/quynh/Desktop/JavaWeb/WorkShop1_Shopping/src/java/controller/ProcessCheckout.java</file>
             <file>file:/C:/Users/quynh/Desktop/JavaWeb/WorkShop1_Shopping/src/java/dao/ProductDAO.java</file>
         </group>

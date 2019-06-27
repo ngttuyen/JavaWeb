@@ -5,13 +5,19 @@
  */
 package controller;
 
+import dao.OrderDAO;
+import dao.ProductDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Customer;
+import model.OrderLine;
+import util.GetCurrentDate;
 
 /**
  *
@@ -36,7 +42,7 @@ public class ProcessCheckout extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProcessCheckout</title>");            
+            out.println("<title>Servlet ProcessCheckout</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ProcessCheckout at " + request.getContextPath() + "</h1>");
@@ -72,11 +78,29 @@ public class ProcessCheckout extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        if (session.getAttribute("user") == null) {
+        Customer m = (Customer) session.getAttribute("user");
+        String date = GetCurrentDate.getCurrentTimeStamp();
+        String method = request.getParameter("method");
+        boolean insertOrder = false;
+        boolean insertOrderLine = false;
+        if (m == null) {
             response.sendRedirect("login.jsp");
         } else {
-            session.getAttribute("List");
-            
+            HashMap<String, OrderLine> buyerList = (HashMap) session.getAttribute("List");
+            String customerID = m.getCustomerID();   
+            insertOrder = ProductDAO.insertOrder(date, method, customerID);
+            for (String name : buyerList.keySet()) {
+                int OrderID = OrderDAO.getOrderID(customerID);
+                int quantity = buyerList.get(name).getQuantity();
+                int price = buyerList.get(name).getPrice();
+                insertOrderLine = ProductDAO.insertOrderLine(OrderID, 2, quantity, price);
+            }
+            if ((insertOrder == true) && (insertOrderLine == true)) {
+                request.setAttribute("message", "Payment successfully");
+            } else {
+                request.setAttribute("message", "Payment failed");
+            }
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
 

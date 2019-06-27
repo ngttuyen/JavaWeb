@@ -38,6 +38,9 @@ public class OrderLine {
     public void setPrice(int price) {
         this.price = price;
     }
+    public int getTotal(){
+        return total();
+    }
 
     public static HashMap<String, OrderLine> getMap() {
         return buyerList;
@@ -52,6 +55,7 @@ public class OrderLine {
         }
         return p;
     }
+    
 
     public static void adddProduct(int productID) {
         Product p = getProduct(productID);

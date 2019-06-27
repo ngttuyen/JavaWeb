@@ -38,7 +38,7 @@
                 </c:forEach>
             </table><P>
             <p>Total: ${sessionScope.total}</p><P>
-                Payment method: <input type="text" name="payment"/><br><P>
+                Payment method: <input type="text" name="method"/><br><P>
                 <script type="text/javascript">
                     function checkCard() {
                         var check = document.getElementById("login").innerHTML;
@@ -48,7 +48,6 @@
                     }
                 </script>
                 <input type="submit" value="Continue" onclick="return checkCard()"/>
-
         </form>
     </body>
 </html>
