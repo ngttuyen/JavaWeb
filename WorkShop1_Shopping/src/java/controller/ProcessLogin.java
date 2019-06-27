@@ -80,6 +80,9 @@ public class ProcessLogin extends HttpServlet {
         if (m != null) {
             session.setAttribute("user", m);
             response.sendRedirect("index.jsp");
+        } else {
+            request.setAttribute("error", "Username or Password is incorrect!");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 

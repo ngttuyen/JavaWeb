@@ -17,7 +17,7 @@
                 response.sendRedirect("home.jsp");
             }
         %>
-        
+
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <div class="container">
                 <a href="register.jsp" class="navbar-brand">Crush</a>
@@ -85,19 +85,19 @@
                                         <p>Please fill out this form to register</p>
                                         <form action="ProcessRegister" method="get">
                                             <div class="alert-danger" role="alert">
-                                                ${requestScope.error}
+                                                <p id="error" hidden>Hello</p>${requestScope.error}
                                             </div><br>
                                             <div class="form-group">
-                                                <input required type="text" class="form-control form-control-lg" placeholder="Username" name="username">
+                                                <input id="username" required type="text" class="form-control form-control-lg" placeholder="Username" name="username">
                                             </div>
                                             <div class="form-group">
-                                                <input required type="email" class="form-control form-control-lg" placeholder="Email" name="email">
+                                                <input id="email" required type="email" class="form-control form-control-lg" placeholder="Email" name="email">
                                             </div>
                                             <div class="form-group">
-                                                <input required type="password" class="form-control form-control-lg" placeholder="Password" name="password">
+                                                <input id="password" required type="password" class="form-control form-control-lg" placeholder="Password" name="password">
                                             </div>
                                             <div class="form-group">
-                                                <input required type="password" class="form-control form-control-lg" placeholder="Confirm Password" name="confirmPassword">
+                                                <input id="confirm" required type="password" class="form-control form-control-lg" placeholder="Confirm Password" name="confirmPassword">
                                             </div>
                                             <input type="submit" class="btn btn-outline-light btn-block" value="Register">
                                         </form>
@@ -109,6 +109,15 @@
                 </div>
             </div>
         </header>
+        <!--        <script>
+                    var username = document.getElementById('username').innerHTML;
+                    var email = document.getElementById('email').innerHTML;
+                    var password = document.getElementById('password').innerHTML;
+                    var confirmPw = document.getElementById('confirm').innerHTML;
+                    if (usermame.length < 8) {
+                        document.getElementById('error').style.display = "block";
+                    }
+                </script>-->
 
         <!-- ABOUT HEAD -->
         <section id="explore-head-section">
@@ -184,7 +193,8 @@
             </div>
         </div>
 
-        <script src="js/jquery.min.js"></script>
+
+        <script type="text/javascript" src="js/jquery.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </body>

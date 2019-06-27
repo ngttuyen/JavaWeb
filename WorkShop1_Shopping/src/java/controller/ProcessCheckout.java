@@ -75,7 +75,8 @@ public class ProcessCheckout extends HttpServlet {
         if (session.getAttribute("user") == null) {
             response.sendRedirect("login.jsp");
         } else {
-            //response.sendRedirect("index.jsp");
+            session.getAttribute("List");
+            
         }
     }
 

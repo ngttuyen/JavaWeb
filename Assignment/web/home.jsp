@@ -26,7 +26,7 @@
             <div class="wrap">
                 <img id="profile-img" src="<%=usr.getAvatar()%>" class="online" alt="" />
                 <p><%=usr.getFullName()%></p>
-                <button class="btn btn-primary btn-sm ml-5">Logout</button>
+              <a href="ProcessLogout" class="btn btn-primary ml-3">Logout</a>
             </div>
         </div>
         <!--- Khung tìm Kiếm ---->

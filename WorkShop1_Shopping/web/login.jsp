@@ -27,6 +27,7 @@
                     <td><input type="submit" value="Login"></td>
                 <tr>
             </table>
+            ${requestScope.error}
 
         </form>
     </body>

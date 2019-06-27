@@ -8,9 +8,12 @@ package dao;
 import java.sql.Connection;
 import model.Product;
 import dbconfig.DBConfig;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import model.Order;
 import model.OrderLine;
 
 /**
@@ -37,15 +40,38 @@ public class ProductDAO {
         return pList;
     }
 
-//    public static boolean insertOrder(OrderLine or) {
-//        String insert = "insert into OrderLine values(?,?,?)";
-//        try (Connection conn = DBConfig.getConnection()) {
-//            PreparedStatement ps = conn.prepareStatement(insert);
-//            ps.setString(1, Integer.toString(or.getQuantity()));
-//            //ps.setString(2, );
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public static boolean insertOrder(String date, String method, String customerID) {
+        String insert = "insert into OrderTBL values(?,?,?)";
+        try (Connection conn = DBConfig.getConnection()) {
+            PreparedStatement ps = conn.prepareStatement(insert);
+            ps.setString(1, date);
+            ps.setString(2, method);
+            ps.setString(3, customerID);
+            int x = ps.executeUpdate();
+            if (x > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
+    public static boolean insertOrderLine(int orderID, int productID, int quantity, int price) {
+        String insert = "insert into OrderLineTBL values(?,?,?,?)";
+        try (Connection conn = DBConfig.getConnection()) {
+            PreparedStatement ps = conn.prepareStatement(insert);
+            ps.setString(1, Integer.toString(orderID));
+            ps.setString(2, Integer.toString(productID));
+            ps.setString(3, Integer.toString(quantity));
+            ps.setString(4, Integer.toString(price));
+            int x = ps.executeUpdate();
+            if (x > 0) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

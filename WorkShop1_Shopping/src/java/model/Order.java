@@ -12,24 +12,14 @@ import java.util.Date;
  * @author Quynh
  */
 public class Order {
-
-    private String orderID, PaymentMethod;
-    private int customerID;
+    private String PaymentMethod;
+    private String customerID;
     private Date date;
 
-    public Order(String orderID, String PaymentMethod, int customerID, Date date) {
-        this.orderID = orderID;
+    public Order(String PaymentMethod, String customerID, Date date) {
         this.PaymentMethod = PaymentMethod;
         this.customerID = customerID;
         this.date = date;
-    }
-
-    public String getOrderID() {
-        return orderID;
-    }
-
-    public void setOrderID(String orderID) {
-        this.orderID = orderID;
     }
 
     public String getPaymentMethod() {
@@ -40,11 +30,11 @@ public class Order {
         this.PaymentMethod = PaymentMethod;
     }
 
-    public int getCustomerID() {
+    public String getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(int customerID) {
+    public void setCustomerID(String customerID) {
         this.customerID = customerID;
     }
 
