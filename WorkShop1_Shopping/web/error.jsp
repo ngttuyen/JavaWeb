@@ -12,6 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        ${requestScope.message}
+        <h1>${requestScope.message}</h1>
+        <a href="index.jsp">Back to home page</a>
     </body>
 </html>

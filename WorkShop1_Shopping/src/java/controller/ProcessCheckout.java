@@ -101,6 +101,8 @@ public class ProcessCheckout extends HttpServlet {
             } else {
                 request.setAttribute("message", "Payment failed");
             }
+            session.removeAttribute("List");
+            session.removeAttribute("total");
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
