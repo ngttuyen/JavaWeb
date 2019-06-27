@@ -87,13 +87,14 @@ public class ProcessCheckout extends HttpServlet {
             response.sendRedirect("login.jsp");
         } else {
             HashMap<String, OrderLine> buyerList = (HashMap) session.getAttribute("List");
-            String customerID = m.getCustomerID();   
+            String customerID = m.getCustomerID();            
             insertOrder = ProductDAO.insertOrder(date, method, customerID);
             for (String name : buyerList.keySet()) {
+                String key = name.toString();
                 int OrderID = OrderDAO.getOrderID(customerID);
                 int quantity = buyerList.get(name).getQuantity();
                 int price = buyerList.get(name).getPrice();
-                insertOrderLine = ProductDAO.insertOrderLine(OrderID, 2, quantity, price);
+                insertOrderLine = ProductDAO.insertOrderLine(OrderID, ProductDAO.getProductID(key), quantity, price);
             }
             if ((insertOrder == true) && (insertOrderLine == true)) {
                 request.setAttribute("message", "Payment successfully");

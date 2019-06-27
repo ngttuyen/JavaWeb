@@ -71,4 +71,19 @@ public class ProductDAO {
         }
         return false;
     }
+
+    public static int getProductID(String productName) {
+        String sql = "select ProductID from ProductTBL where ProductName = ?";
+        try (Connection conn = DBConfig.getConnection()) {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, productName);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("ProductID");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 }
