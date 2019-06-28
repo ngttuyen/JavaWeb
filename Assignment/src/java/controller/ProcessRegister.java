@@ -33,12 +33,28 @@ public class ProcessRegister extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        //processRequest(request, response);
         HttpSession session = request.getSession();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String email = request.getParameter("email");
         if ((Validate.checkUserName(username) == true) && (Validate.checkEmail(email) == true)) {
             request.setAttribute("error", "Username and Email is already exist");
+            request.setAttribute("username", username);
             request.getRequestDispatcher("register.jsp").forward(request, response);
         } else if (Validate.checkUserName(username) == true) {
             request.setAttribute("error", "Username is already exist");
@@ -57,20 +73,6 @@ public class ProcessRegister extends HttpServlet {
             }
             response.sendRedirect("update_info.jsp");
         }
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
     }
 
     /**

@@ -12,8 +12,6 @@ import model.User;
 
 public class UserDAO {
 
-
-
     private static final String getUsrSt = "select * from USERS where UserName = ? and PassWord = ?";
     private static final String insUserSt = "insert into USERS(UserName,PassWord,Email,Status) values(?,?,?,'2')";
     private static final String getAvtSt = "select Avatar from USERS where uid = ?";
