@@ -89,7 +89,7 @@
                                                 <input id="username" type="text" class="form-control form-control-lg" placeholder="Username" name="username" value="">
                                             </div>
                                             <div class="form-group">
-                                                <input id="email" type="email" class="form-control form-control-lg" placeholder="Email" name="email">
+                                                <input id="email" type="text" class="form-control form-control-lg" placeholder="Email" name="email">
                                             </div>
                                             <div class="form-group">
                                                 <input id="password1" type="password" class="form-control form-control-lg" placeholder="Password" name="password">
@@ -97,8 +97,14 @@
                                             <div class="form-group">
                                                 <input id="password2" type="password" class="form-control form-control-lg" placeholder="Confirm Password" name="confirmPassword">
                                             </div>
+
+                                            <input type="submit" class="btn btn-outline-light btn-block" value="Register">
                                             <script>
                                                 function checkForm(form) {
+                                                    var email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                                                    var usernameRegex = /^[a-zA-Z0-9]+$/;
+                                                    var strongRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+
                                                     if ((form.username.value == "") && (form.email.value == "")
                                                             && (form.password1.value == "") && (form.password2.value == "")) {
                                                         Swal.fire({
@@ -143,11 +149,32 @@
                                                         });
                                                         return false;
                                                     } else {
+                                                        if (!usernameRegex.test(form.username.value)) {
+                                                            Swal.fire({
+                                                                type: 'error',
+                                                                title: 'Please input valid Username',
+                                                            });
+                                                            return false;
+                                                        }
+                                                        if (!email.test(form.email.value)) {
+                                                            Swal.fire({
+                                                                type: 'error',
+                                                                title: 'Please input valid Email',
+                                                            });
+                                                            return false;
+                                                        }
+                                                        if (!strongRegex.test(form.password.value)) {
+                                                            Swal.fire({
+                                                                type: 'error',
+                                                                title: 'Invalid Password',
+                                                                text: 'Password must contains at least 1 number , 1 Upper and 1 Lower',
+                                                            });
+                                                            return false;
+                                                        }
                                                         return true;
                                                     }
                                                 }
                                             </script>
-                                            <input type="submit" class="btn btn-outline-light btn-block" value="Register">
                                             <script>
                                                 var x = "${requestScope.error}";
                                                 if (x != "") {
