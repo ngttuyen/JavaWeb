@@ -13,11 +13,9 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@8.13.0/dist/sweetalert2.min.css">
     </head>
     <body id="home">
-        <%
-            if (session.getAttribute("user") != null) {
-                response.sendRedirect("home.jsp");
-            }
-        %>
+        <c:if test="${sessionScope.user!=null}">
+            <c:redirect url="home.jsp"/>
+        </c:if>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.13.0/dist/sweetalert2.all.min.js"></script>      
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <div class="container">

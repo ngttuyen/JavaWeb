@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -13,11 +14,9 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@8.13.0/dist/sweetalert2.min.css">
     </head>
     <body id="home">
-        <%
-            if (session.getAttribute("user") != null) {
-                response.sendRedirect("home.jsp");
-            }
-        %>
+        <c:if test="${sessionScope.user!=null}">
+            <c:redirect url="home.jsp"/>
+        </c:if>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.13.0/dist/sweetalert2.all.min.js"></script> 
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
             <div class="container">
@@ -77,6 +76,15 @@
                                                     } else {
                                                         return true;
                                                     }
+                                                }
+                                            </script>
+                                            <script>
+                                                var x = "${requestScope.error}";
+                                                if (x != "") {
+                                                    Swal.fire({
+                                                        type: 'error',
+                                                        title: x,
+                                                    })
                                                 }
                                             </script>
                                             <button type="submit" class="btn btn-primary btn-block">Login</button>

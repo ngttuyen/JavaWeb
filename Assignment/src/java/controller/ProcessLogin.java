@@ -35,6 +35,9 @@ public class ProcessLogin extends HttpServlet {
                 // Xác nhận đầy đủ rồi thì chuyển vào trang chính
                 response.sendRedirect("home.jsp");
             }
+        }else {
+            request.setAttribute("error", "Username Or Password is invalid!");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 }
