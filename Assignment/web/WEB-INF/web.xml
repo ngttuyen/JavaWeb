@@ -20,6 +20,10 @@
         <servlet-name>ProcessUpdate</servlet-name>
         <servlet-class>controller.ProcessUpdate</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProcessCrush</servlet-name>
+        <servlet-class>controller.ProcessCrush</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProcessRegister</servlet-name>
         <url-pattern>/ProcessRegister</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>ProcessUpdate</servlet-name>
         <url-pattern>/ProcessUpdate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcessCrush</servlet-name>
+        <url-pattern>/ProcessCrush</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

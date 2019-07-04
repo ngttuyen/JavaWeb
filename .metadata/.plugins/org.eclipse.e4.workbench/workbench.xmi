@@ -630,7 +630,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_ciTtgH-9EemXcfmUYvviMQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_C7L1sI3cEemW6qZccUkJ9A" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_cOeywn-9EemXcfmUYvviMQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_SInzIJpnEemPr-efx76q_w" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_cOeywn-9EemXcfmUYvviMQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_ciTtgX-9EemXcfmUYvviMQ" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -670,7 +670,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_ciUUkH-9EemXcfmUYvviMQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_C7U_oI3cEemW6qZccUkJ9A" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_cOeLjX-9EemXcfmUYvviMQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_SIsEkJpnEemPr-efx76q_w" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_cOeLjX-9EemXcfmUYvviMQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_ciUUkX-9EemXcfmUYvviMQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -1534,7 +1534,7 @@
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>
-  <descriptors xmi:id="_cfGogH-9EemXcfmUYvviMQ" elementId="org.eclipse.help.ui.HelpView" label="Help" iconURI="platform:/plugin/org.eclipse.help.ui/icons/view16/help_view.gif" tooltip="" category="Help" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_cfGogH-9EemXcfmUYvviMQ" elementId="org.eclipse.help.ui.HelpView" label="Help" iconURI="platform:/plugin/org.eclipse.help.ui/icons/view16/help_view.png" tooltip="" category="Help" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <persistedState key="originalCompatibilityViewClass" value="org.eclipse.help.ui.internal.views.HelpView"/>
     <persistedState key="originalCompatibilityViewBundle" value="org.eclipse.help.ui"/>
     <tags>View</tags>
@@ -2951,7 +2951,7 @@
   <commands xmi:id="_cOey-H-9EemXcfmUYvviMQ" elementId="org.eclipse.jdt.ui.JavaHierarchyPerspective" commandName="Java Type Hierarchy" description="Show the Java Type Hierarchy perspective" category="_cOSlWn-9EemXcfmUYvviMQ"/>
   <commands xmi:id="_cOey-X-9EemXcfmUYvviMQ" elementId="org.eclipse.wst.jsdt.ui.edit.text.java.search.declarations.in.project" commandName="Declaration in Project" description="Search for declarations of the selected element in the enclosing project" category="_cOSlV3-9EemXcfmUYvviMQ"/>
   <commands xmi:id="_cOey-n-9EemXcfmUYvviMQ" elementId="org.eclipse.jdt.ui.edit.text.java.surround.with.try.multicatch" commandName="Surround with try/multi-catch Block" description="Surround the selected text with a try/multi-catch block" category="_cOSlXX-9EemXcfmUYvviMQ"/>
-  <commands xmi:id="_cOey-3-9EemXcfmUYvviMQ" elementId="org.eclipse.egit.ui.team.Tag" commandName="Tag" category="_cOSlWH-9EemXcfmUYvviMQ"/>
+  <commands xmi:id="_cOey-3-9EemXcfmUYvviMQ" elementId="org.eclipse.egit.ui.team.Tag" commandName="Create Tag..." category="_cOSlWH-9EemXcfmUYvviMQ"/>
   <commands xmi:id="_cOey_H-9EemXcfmUYvviMQ" elementId="org.eclipse.egit.ui.team.NoAssumeUnchanged" commandName="No Assume Unchanged" category="_cOSlWH-9EemXcfmUYvviMQ"/>
   <commands xmi:id="_cOey_X-9EemXcfmUYvviMQ" elementId="org.eclipse.wst.jsdt.ui.JavadocView" commandName="Documentation" description="Show the JavaScript Documentation view" category="_cOR-W3-9EemXcfmUYvviMQ"/>
   <commands xmi:id="_cOey_n-9EemXcfmUYvviMQ" elementId="org.eclipse.debug.ui.commands.RemoveAllBreakpoints" commandName="Remove All Breakpoints" description="Removes all breakpoints" category="_cOR-Tn-9EemXcfmUYvviMQ"/>
@@ -3270,6 +3270,10 @@
   <commands xmi:id="_ceasAn-9EemXcfmUYvviMQ" elementId="AUTOGEN:::variableViewActions/org.eclipse.wst.jsdt.debug.ui.variableview.show.this" commandName="Show 'this' variable" description="Show or hide the this variable" category="_cOR-WH-9EemXcfmUYvviMQ"/>
   <commands xmi:id="_cebTEH-9EemXcfmUYvviMQ" elementId="AUTOGEN:::variableViewActions/org.eclipse.wst.jsdt.debug.ui.variableview.show.prototypes" commandName="Show proto variables" description="Show or hide proto variables" category="_cOR-WH-9EemXcfmUYvviMQ"/>
   <commands xmi:id="_cebTEX-9EemXcfmUYvviMQ" elementId="AUTOGEN:::org.eclipse.ui.articles.action.contribution.view/org.eclipse.wst.wsi.ui.internal.actions.actionDelegates.ValidateWSIProfileActionDelegate" commandName="WS-I Profile Validator" description="Validate WS-I Message Log File" category="_cOR-WH-9EemXcfmUYvviMQ"/>
+  <commands xmi:id="_Rvs80JpnEemPr-efx76q_w" elementId="org.eclipse.egit.ui.team.Revert" commandName="Revert Commit" category="_cOSlWH-9EemXcfmUYvviMQ"/>
+  <commands xmi:id="_Rvs80ZpnEemPr-efx76q_w" elementId="org.eclipse.egit.ui.team.CherryPick" commandName="Cherry Pick" category="_cOSlWH-9EemXcfmUYvviMQ"/>
+  <commands xmi:id="_SEdE0JpnEemPr-efx76q_w" elementId="AUTOGEN:::org.eclipse.jdt.debug.CompilationUnitEditor.BreakpointRulerActions/org.eclipse.jdt.debug.ui.actions.RunToLineRulerActionDelegate" commandName="Run to Line" category="_cOR-WH-9EemXcfmUYvviMQ"/>
+  <commands xmi:id="_SEdr4JpnEemPr-efx76q_w" elementId="AUTOGEN:::org.eclipse.jdt.debug.ClassFileEditor.BreakpointRulerActions/org.eclipse.jdt.debug.ui.actions.RunToLineRulerActionDelegate" commandName="Run to Line" category="_cOR-WH-9EemXcfmUYvviMQ"/>
   <addons xmi:id="_cNy2GX-9EemXcfmUYvviMQ" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_cNy2Gn-9EemXcfmUYvviMQ" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_cNy2G3-9EemXcfmUYvviMQ" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -3281,7 +3285,7 @@
   <addons xmi:id="_cNy2IX-9EemXcfmUYvviMQ" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_cNy2In-9EemXcfmUYvviMQ" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_cN6K0H-9EemXcfmUYvviMQ" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="__ytB0Y3bEemW6qZccUkJ9A" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_cOR-QH-9EemXcfmUYvviMQ" elementId="org.eclipse.ui.category.edit" name="Edit"/>
   <categories xmi:id="_cOR-QX-9EemXcfmUYvviMQ" elementId="org.eclipse.mylyn.wikitext.ui.editor.category" name="WikiText Markup Editing Commands" description="commands for editing lightweight markup"/>

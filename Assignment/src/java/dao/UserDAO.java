@@ -17,7 +17,31 @@ public class UserDAO {
     private static final String getAvtSt = "select Avatar from USERS where uid = ?";
     private static final String findUsername = "select UserName from USERS where Username = ?";
     private static final String findEmail = "select Email from USERS where Email=?";
-    private static final String update = "update USERS set FullName = ? ,Age = ? , Gender = ? ,Avatar =? ,Status = 1 where uid = ?";
+    private static final String update = "update USERS set FullName = ? ,Age = ? , Gender = ? ,Avatar =? ,Status = 0 where uid = ?";
+
+    public static String getStrGender(int i) {
+        switch (i) {
+            case 2:
+                return "Male";
+            case 3:
+                return "Female";
+            case 5:
+                return "Lgbt";
+        }
+        return "";
+    }
+
+    public static int getIntGender(String s) {
+        switch (s) {
+            case "Male":
+                return 2;
+            case "Female":
+                return 3;
+            case "Lgbt":
+                return 5;
+        }
+        return -1;
+    }
 
     public static boolean updateUserInfo(String fullName,
             int age, String gender, String avatarPath, int uid) {
@@ -25,7 +49,7 @@ public class UserDAO {
             PreparedStatement ps = conn.prepareStatement(update);
             ps.setString(1, fullName);
             ps.setInt(2, age);
-            ps.setString(3, gender);
+            ps.setInt(3, getIntGender(gender));
             ps.setString(4, avatarPath);
             ps.setInt(5, uid);
             ps.execute();
@@ -101,7 +125,7 @@ public class UserDAO {
                 u = new User(rs.getString("Password"),
                         rs.getString("UserName"),
                         rs.getString("FullName"),
-                        rs.getString("Gender"),
+                        getStrGender(rs.getInt("Gender")),
                         rs.getString("Email"),
                         ImageSaver.imagePath + rs.getString("Avatar"),
                         rs.getInt("UID"),
@@ -130,4 +154,36 @@ public class UserDAO {
         }
         return null;
     }
+
+    public static String crushPeople(String oldDes, String des, int crushId) {
+        String sql = "update USERS set Description = ? where UID = ?";
+        try (Connection conn = DBConfig.getConnection()) {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, oldDes + des + ",");
+            ps.setInt(2, crushId);
+            int result = ps.executeUpdate();
+            if (result > 0) {
+                return oldDes + des;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    public static String getDes(int crushId) {
+        String sql = "select Description from USERS where UID = ?";
+        try (Connection conn = DBConfig.getConnection()) {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, crushId);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getString("Description");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+    
 }
